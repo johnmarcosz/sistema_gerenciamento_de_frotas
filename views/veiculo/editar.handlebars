@@ -1,0 +1,68 @@
+<div class="container-xl">
+    <div class="table-responsive">
+
+        <div class="table-wrapper" style="max-width: 600px; margin: auto;">
+
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-mb-3">
+                        <h4>Editar Veículo</h4>
+                    </div>
+                </div>
+            </div>
+
+            <form action="/veiculo/editarPost" method="POST">
+
+                <div class="form-control">
+
+                    <input type="hidden" name="id" value="{{veiculo.id}}">
+
+                    <div class="mb-3">
+                        <label for="placa" class="form-label">Placa</label>
+                        <input type="text" class="form-control" name="placa" placeholder="Placa do veículo" value="{{veiculo.placa}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo</label>
+                        <input type="text" class="form-control" name="tipo" placeholder="Tipo do veículo" value="{{veiculo.tipo}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ano" class="form-label">Ano</label>
+                        <input type="text" class="form-control" name="ano" placeholder="Ano do veículo" value="{{veiculo.ano}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="numeroRenavam" class="form-label">Renavam</label>
+                        <input type="text" step="0.01" class="form-control" name="numeroRenavam" placeholder="Número do Renavam" value="{{veiculo.numeroRenavam}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="validadeCsv" class="form-label">Validade do CSV</label>
+                        <input type="date" step="0.01" class="form-control" name="validadeCsv" placeholder="Validade do CSV" value="{{veiculo.validadeCsv}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="validadeLit" class="form-label">Validade do LIT</label>
+                        <input type="date" step="0.01" class="form-control" name="validadeLit" placeholder="Validade do LIT" value="{{veiculo.validadeLit}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="capacidadePassageiros" class="form-label">Capacidade</label>
+                        <input type="number" step="0.01" class="form-control" name="capacidadePassageiros" placeholder="Capacidade de passageiros" value="{{veiculo.capacidadePassageiros}}">
+                    </div>
+
+                    <center>
+                        <button type="submit" class="btn btn-success"><i class="bi bi-check-circle-fill"></i>
+                            Salvar</button>
+                        <a href="/veiculo" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
+                    </center>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
