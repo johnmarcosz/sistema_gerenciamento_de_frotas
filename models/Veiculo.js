@@ -37,6 +37,14 @@ const Veiculo = bancoDeDados.define("Veiculo", {
     ano:{
         type: DataTypes.INTEGER,
         allowNull: true
+<<<<<<< HEAD
+=======
+    },
+
+    usuarioCriacao:{
+        type: DataTypes.STRING(20),
+        allowNull: false
+>>>>>>> b7d7a42705fdeda09bfc14f192421052262ae57c
     }
 
 })

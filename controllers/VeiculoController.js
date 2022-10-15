@@ -25,6 +25,15 @@ module.exports = class VeiculoController {
             }
 
             const resultado = data.map((result) => result.get({ plain: true }))
+<<<<<<< HEAD
+=======
+
+            for(var index in resultado){
+                resultado[index].validadeCsv =  resultado[index].validadeCsv.toLocaleDateString('pt-BR')
+                resultado[index].validadeLit =  resultado[index].validadeLit.toLocaleDateString('pt-BR')
+            }
+
+>>>>>>> b7d7a42705fdeda09bfc14f192421052262ae57c
             res.render('veiculo/listar', { resultado, quantidade })
 
         })
@@ -52,7 +61,12 @@ module.exports = class VeiculoController {
             validadeCsv: req.body.validadeCsv,
             validadeLit: req.body.validadeLit,
             capacidadePassageiros: req.body.capacidadePassageiros,
+<<<<<<< HEAD
             ano: req.body.ano
+=======
+            ano: req.body.ano,
+            usuarioCriacao: "john"
+>>>>>>> b7d7a42705fdeda09bfc14f192421052262ae57c
         }
 
         Veiculo.create(veiculo)
@@ -72,6 +86,11 @@ module.exports = class VeiculoController {
 
         Veiculo.findOne({ where: { id: id }, raw: true })
             .then((veiculo) => {
+<<<<<<< HEAD
+=======
+                veiculo.validadeCsv = veiculo.validadeCsv.toLocaleDateString('en-CA')
+                veiculo.validadeLit = veiculo.validadeLit.toLocaleDateString('en-CA')
+>>>>>>> b7d7a42705fdeda09bfc14f192421052262ae57c
                 res.render('veiculo/editar', { veiculo })
             })
             .catch((err) => console.log(err))

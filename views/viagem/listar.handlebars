@@ -6,11 +6,11 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h4>Veículos</h4>
+                        <h4>Viagens</h4>
                     </div>
                     <div class="col-sm-7">
-                        <a href="/veiculo/criar" class="btn btn-success"><i class="bi bi-plus-circle-fill"></i><span>
-                                Novo</span></a>
+                        <a href="/viagem/criar" class="btn btn-success"><i class="bi bi-plus-circle-fill"></i><span>
+                                Nova</span></a>
                     </div>
                 </div>
             </div>
@@ -19,34 +19,29 @@
 
                 <thead>
                     <tr>
-                        <th>Placa</th>
-                        <th>Tipo</th>
-                        <th>Renavam</th>
-                        <th>Validade CSV</th>
-                        <th>Validade LIT</th>
-                        <th>Capacidade de Passageiros</th>
-                        <th>Ano do veículo</th>
-<<<<<<< HEAD
-=======
+                        <th>Origem</th>
+                        <th>Destino</th>
+                        <th>Data de partida</th>
+                        <th>Data de retorno</th>
+                        <th>Veículo</th>
+                        <th>Custo</th>
                         <th>Ações</th>
->>>>>>> b7d7a42705fdeda09bfc14f192421052262ae57c
                     </tr>
                 </thead>
                 <tbody>
                     {{#each resultado}}
                     <tr>
-                        <td>{{this.placa}}</td>
-                        <td>{{this.tipo}}</td>
-                        <td>{{this.numeroRenavam}}</td>
-                        <td>{{this.validadeCsv}}</td>
-                        <td>{{this.validadeLit}}</td>
-                        <td>{{this.capacidadePassageiros}}</td>
-                        <td>{{this.ano}}</td>
+                        <td>{{this.origem}}</td>
+                        <td>{{this.destino}}</td>
+                        <td>{{this.dataPartida}}</td>
+                        <td>{{this.dataRetorno}}</td>
+                        <td>{{this.veiculoPlaca}} {{this.veiculoDescricao}}</td>
+                        <td>{{this.valorTotal}}</td>
                         <td>
                             <span class="actions">
-                                <a href="/veiculo/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
+                                <a href="/viagem/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
                                         id="lapis"></i></a>
-                                <form action="/veiculo/remover" method="POST">
+                                <form action="/viagem/remover" method="POST">
                                     <input type="hidden" name="id" value={{this.id}}>
                                     <button type="submit" data-toggle="tooltip" data-placement="top"
                                         data-title="Excluir">
@@ -92,19 +87,11 @@
                 }
             ],
             columnDefs: [
-<<<<<<< HEAD
                 {
                     targets: 3,
                     render: $.fn.dataTable.render.number('.', ',', 2, ''),
                     className: "dt-right",
                 },
-=======
-                /*{
-                    targets: 3,
-                    render: $.fn.dataTable.render.number('.', ',', 2, ''),
-                    className: "dt-right",
-                },*/
->>>>>>> b7d7a42705fdeda09bfc14f192421052262ae57c
                 {
                     targets: 4,
                     className: "dt-center",

@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "sistema_gerenciamento_de_frotas-main",
+=======
+  "name": "sistema_gerenciamento_de_frotas",
+>>>>>>> b7d7a42705fdeda09bfc14f192421052262ae57c
   "version": "1.0.0",
   "description": "Projeto de extensão da disciplina de Atividade de Extensão I do IFSC Canoinhas.",
   "main": "index.js",
@@ -21,7 +25,11 @@
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.20",
+<<<<<<< HEAD
     "sequelize": "^6.25.0",
+=======
+    "sequelize": "^6.25.1",
+>>>>>>> b7d7a42705fdeda09bfc14f192421052262ae57c
     "session-file-store": "^1.5.0"
   }
 }

@@ -7,6 +7,7 @@ const Veiculo = require("../models/Veiculo")
 
 const Viagem_Veiculos = bancoDeDados.define("Viagem_Veiculos", {
 
+<<<<<<< HEAD
     nome:{
         type: DataTypes.STRING,
         allowNull: false
@@ -17,6 +18,8 @@ const Viagem_Veiculos = bancoDeDados.define("Viagem_Veiculos", {
         allowNull: false
     }
 
+=======
+>>>>>>> b7d7a42705fdeda09bfc14f192421052262ae57c
 })
 
 Viagem_Veiculos.belongsTo(Viagem)
