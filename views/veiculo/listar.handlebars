@@ -1,44 +1,50 @@
+<title>Veículos | Consulta</title>
+
 <div class="container-xl">
 
-    <div class="table-responsive">
+    <div class="table">
         <div class="table-wrapper">
 
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h4>Veículos</h4>
+                        <h4>Veículos cadastrados</h4>
                     </div>
                     <div class="col-sm-7">
-                        <a href="/veiculo/criar" class="btn btn-success"><i class="bi bi-plus-circle-fill"></i><span>
-                                Novo</span></a>
+                        <a href="/veiculo/criar" class="btn btn-success">
+                            <i class="bi bi-plus-circle"></i>
+                            <span>Novo</span>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <table id="tabela" class="table table-striped" style="width:100%">
+            <hr class="dropdown-divider">
+
+            <table id="tabela" class="table table-striped pb-3" style="width:100%">
 
                 <thead>
-                    <tr>
-                        <th>Placa</th>
-                        <th>Tipo</th>
-                        <th>Renavam</th>
-                        <th>Validade CSV</th>
-                        <th>Validade LIT</th>
-                        <th>Capacidade de Passageiros</th>
-                        <th>Ano do veículo</th>
+                    <tr class="text-center align-middle">
+                        <th class="text-center">Placa</th>
+                        <th class="text-center col-2">Tipo</th>
+                        <th class="text-center">Renavam</th>
+                        <th class="text-center">Validade CSV</th>
+                        <th class="text-center">Validade LIT</th>
+                        <th class="text-center">Capacidade de Passageiros</th>
+                        <th class="text-center">Ano do veículo</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each resultado}}
                     <tr>
-                        <td>{{this.placa}}</td>
-                        <td>{{this.tipo}}</td>
-                        <td>{{this.numeroRenavam}}</td>
-                        <td>{{this.validadeCsv}}</td>
-                        <td>{{this.validadeLit}}</td>
-                        <td>{{this.capacidadePassageiros}}</td>
-                        <td>{{this.ano}}</td>
+                        <td class="text-center">{{this.placa}}</td>
+                        <td class="text-center">{{this.tipo}}</td>
+                        <td class="text-center">{{this.numeroRenavam}}</td>
+                        <td class="text-center">{{this.validadeCsv}}</td>
+                        <td class="text-center">{{this.validadeLit}}</td>
+                        <td class="text-center">{{this.capacidadePassageiros}}</td>
+                        <td class="text-center">{{this.ano}}</td>
                         <td>
                             <span class="actions">
                                 <a href="/veiculo/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
@@ -102,6 +108,6 @@
             order: [[0, 'desc']],
 
         });
-
+        $('.dataTables_length').addClass('bs-select');
     });
 </script>
