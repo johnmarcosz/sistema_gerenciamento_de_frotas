@@ -1,6 +1,6 @@
-//npm init -y
+// Comandos para iniciar o projeto e instalar os pacotes
+// npm init -y
 // npm install express express-handlebars sequelize mysql2 bcryptjs connect-flash cookie-parser cookie-session express-flash express-session session-file-store nodemon
-
 
 const express = require("express");
 const expressHandlebars = require("express-handlebars");
@@ -29,9 +29,11 @@ aplicacao.use(express.static('public'))
 // Importa os Models para a criação das tabelas
 const Usuario = require("./models/Usuario");
 const Motorista = require("./models/Motorista"); 
+const Pessoa = require("./models/Pessoa");
 const Viagem = require("./models/Viagem");
 const Veiculo = require("./models/Veiculo");
 const Viagem_Veiculos = require("./models/Viagem_Veiculos");
+const Orcamento = require("./models/Orcamento");
 
 
 // Rota inicial
@@ -42,6 +44,10 @@ aplicacao.get("/", function (requisicao, resposta) {
 //Rotas dos models
 const veiculoRotas = require("./routes/veiculoRotas");
 aplicacao.use("/veiculo", veiculoRotas);
+
+const viagemRotas = require("./routes/viagemRotas");
+aplicacao.use("/viagem", viagemRotas);
+
 const motoristaRotas = require("./routes/motoristaRotas");
 aplicacao.use("/motorista", motoristaRotas);
 
