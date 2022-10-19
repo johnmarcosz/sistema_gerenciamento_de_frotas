@@ -25,12 +25,6 @@ module.exports = class VeiculoController {
             }
 
             const resultado = data.map((result) => result.get({ plain: true }))
-
-            for(var index in resultado){
-                resultado[index].validadeCsv =  resultado[index].validadeCsv.toLocaleDateString('pt-BR')
-                resultado[index].validadeLit =  resultado[index].validadeLit.toLocaleDateString('pt-BR')
-            }
-
             res.render('veiculo/listar', { resultado, quantidade })
 
         })
@@ -58,8 +52,7 @@ module.exports = class VeiculoController {
             validadeCsv: req.body.validadeCsv,
             validadeLit: req.body.validadeLit,
             capacidadePassageiros: req.body.capacidadePassageiros,
-            ano: req.body.ano,
-            usuarioCriacao: "john"
+            ano: req.body.ano
         }
 
         Veiculo.create(veiculo)
@@ -79,8 +72,6 @@ module.exports = class VeiculoController {
 
         Veiculo.findOne({ where: { id: id }, raw: true })
             .then((veiculo) => {
-                veiculo.validadeCsv = veiculo.validadeCsv.toLocaleDateString('en-CA')
-                veiculo.validadeLit = veiculo.validadeLit.toLocaleDateString('en-CA')
                 res.render('veiculo/editar', { veiculo })
             })
             .catch((err) => console.log(err))
