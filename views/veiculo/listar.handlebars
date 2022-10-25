@@ -23,28 +23,26 @@
 
             <table id="tabela" class="table table-striped pb-3" style="width:100%">
 
-                <thead>
+                 <thead>
                     <tr class="text-center align-middle">
+                        <th class="text-center">Descrição</th>
                         <th class="text-center">Placa</th>
+                        <th class="text-center">Ano</th>
                         <th class="text-center col-2">Tipo</th>
-                        <th class="text-center">Renavam</th>
                         <th class="text-center">Validade CSV</th>
                         <th class="text-center">Validade LIT</th>
-                        <th class="text-center">Capacidade de Passageiros</th>
-                        <th class="text-center">Ano do veículo</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each resultado}}
                     <tr>
+                        <td class="text-center">{{this.descricao}}</td>
                         <td class="text-center">{{this.placa}}</td>
+                        <td class="text-center">{{this.ano}}</td>
                         <td class="text-center">{{this.tipo}}</td>
-                        <td class="text-center">{{this.numeroRenavam}}</td>
                         <td class="text-center">{{this.validadeCsv}}</td>
                         <td class="text-center">{{this.validadeLit}}</td>
-                        <td class="text-center">{{this.capacidadePassageiros}}</td>
-                        <td class="text-center">{{this.ano}}</td>
                         <td>
                             <span class="actions">
                                 <a href="/veiculo/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
@@ -61,6 +59,7 @@
                     </tr>
                     {{/each}}
                 </tbody>
+
 
             </table>
 
