@@ -1,0 +1,42 @@
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper" style="max-width: 600px; margin: auto;">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-mb-3">
+                        <h4>Editar Cliente</h4>
+                    </div>
+                </div>
+            </div>
+
+            <form action="/viagem/editarPost" method="POST">
+                <input type="hidden" name="id" value={{viagem.id}}>
+                <div class="mb-3">
+                    <label for="tipo" class="form-label">Tipo (F/J)</label>
+                    <input type="text" class="form-control" name="tipo" placeholder="F ou J" SIZE=1 MAXLENGTH=1 >
+                </div>
+                <div class="mb-3">
+                    <label for="nomeRazaoSocial" class="form-label">Nome/Razão Social</label>
+                    <input type="text" class="form-control" name="nomeRazaoSocial" placeholder="Nome/Rasão Social do Cliente">
+                </div>
+                <div class="mb-3">
+                    <label for="nomeFantasia" claSs="form-label">Nome Fantasia (opcional)</label>
+                    <input type="text" class="form-control" name="nomeFantasia" placeholder="Nome Fantasia (opcional)">
+                </div>
+                 <div class="mb-3">
+                    <label for="cpfCnpj" class="form-label">CPF/CNPJ</label>
+                    <input type="text" class="form-control" name="cpfCnpj" placeholder="CPF/CNP" SIZE=14 MAXLENGTH=14 >
+                </div>
+                 <div class="mb-3">
+                    <label for="telefone" class="form-label">Telefone </label>
+                    <input type="text" class="form-control" name="telefone" placeholder="Telefone" SIZE=11 MAXLENGTH=11>
+                </div>
+                <center>
+                <button type="submit" class="btn btn-success"><i class="bi bi-check-circle-fill"></i> Salvar</button>
+                <a href="/viagem" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
+                </center>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
