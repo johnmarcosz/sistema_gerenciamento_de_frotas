@@ -1,0 +1,88 @@
+<div class="container-xl">
+    <div class="table-responsive">
+
+        <div class="table-wrapper" style="max-width: 600px; margin: auto;">
+
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-mb-3">
+                        <h4>Nova Viagem</h4>
+                    </div>
+                </div>
+            </div>
+
+            <form action="/viagem/criarPost" method="POST">
+
+                <div class="form-control">
+
+                    <div class="mb-3">
+                        <label for="origem" class="form-label">Origem</label>
+                        <input type="text" class="form-control" name="origem" placeholder="Origem da viagem">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="destino" class="form-label">Destino</label>
+                        <input type="text" class="form-control" name="destino" placeholder="Destino da viagem">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="dataPartida" class="form-label">Data de partida</label>
+                        <input type="datetime-local" class="form-control" name="dataPartida">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="dataRetorno" class="form-label">Data de retorno</label>
+                        <input type="datetime-local" class="form-control" name="dataRetorno">
+                    </div>
+                    
+
+                    <div class="row pb-3" style="padding-right: 12px;">
+                        
+                        <label for="veiculo" class="form-label">Veículo</label>
+                        <div class="col" style="padding-right: 0;">
+                            <select class="form-select " name="veiculo" id="inputProcurarVeiculo" aria-label="veiculo">
+                                <option selected>Selecione o veículo</option>
+                                {{#each veiculos}}
+                                <option value="{{this.id}}">{{this.descricao}} - Placa {{this.placa}} </option>
+                                {{/each}}
+                            </select>
+                        </div>  
+
+                        
+                        <a href="" id="botaoAdicionarVeiculo" class="btn btn-success col-1"><i class="bi bi-plus-circle"></i></a> 
+                        
+                
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="valorTotal" class="form-label">Valor total</label>
+                        <input type="text" step="0.01" class="form-control" name="valorTotal" placeholder="Custo da viagem">
+                    </div>
+
+                    <center>
+                        <button type="submit" class="btn btn-success"><i class="bi bi-check-circle-fill"></i>
+                            Salvar</button>
+                        <a href="/viagem" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
+                    </center>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+    document.getElementById("botaoAdicionarVeiculo").onclick = function () {
+        var text = document.getElementById("recipient-email").value;
+        var li = document.createElement("li");
+        var t = document.createTextNode(text);
+        li.appendChild(t);
+
+        document.getElementById("ListEmail").appendChild(li);
+    }
+
+</script>
