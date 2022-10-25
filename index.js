@@ -8,8 +8,8 @@ const session = require("express-session");
 const FileStore = require("session-file-store")(session);
 const flash = require("express-flash");
 
-//Instancia o express, handlebars e mid dos formulários
-const aplicacao = express();
+// Instancia o express, handlebars e mid dos formulários
+const aplicacao = express(); 
 
 const conexaoBD = require("./banco_de_dados/conexaoBD");
 
