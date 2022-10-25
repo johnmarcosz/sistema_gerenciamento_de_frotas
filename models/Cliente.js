@@ -4,23 +4,28 @@ const bancoDeDados = require("../banco_de_dados/conexaoBD")
 
 const Cliente = bancoDeDados.define("Cliente", {
 
-    nome:{
+    tipo:{
+        type: DataTypes.CHAR,
+        allowNull: false
+    },
+    
+    nomeRazaoSocial:{
         type: DataTypes.STRING,
         allowNull: false
     },
-
+    
     nomeFantasia:{
         type: DataTypes.STRING,
         allowNull: true
     },
-
+    
     cpfCnpj:{
         type: DataTypes.STRING(14),
         allowNull: false
     },
-
-    tipoPessoa:{
-        type: DataTypes.CHAR,
+    
+    telefone:{
+        type: DataTypes.STRING(11), 
         allowNull: false
     },
 
@@ -28,7 +33,6 @@ const Cliente = bancoDeDados.define("Cliente", {
         type: DataTypes.STRING(20),
         allowNull: false
     }
-
 })
 
 module.exports = Cliente

@@ -8,8 +8,8 @@ const session = require("express-session");
 const FileStore = require("session-file-store")(session);
 const flash = require("express-flash");
 
-// Instancia o express, handlebars e mid dos formulários
-const aplicacao = express(); 
+//Instancia o express, handlebars e mid dos formulários
+const aplicacao = express();
 
 const conexaoBD = require("./banco_de_dados/conexaoBD");
 
@@ -29,11 +29,12 @@ aplicacao.use(express.static('public'))
 // Importa os Models para a criação das tabelas
 const Usuario = require("./models/Usuario");
 const Motorista = require("./models/Motorista"); 
-const Pessoa = require("./models/Pessoa");
+// const Pessoa = require("./models/Pessoa");
 const Viagem = require("./models/Viagem");
 const Veiculo = require("./models/Veiculo");
-const Viagem_Veiculos = require("./models/Viagem_Veiculos");
-const Orcamento = require("./models/Orcamento");
+// const Viagem_Veiculos = require("./models/Viagem_Veiculos");
+// const Orcamento = require("./models/Orcamento");
+const Cliente = require("./models/Cliente");
 
 
 // Rota inicial
@@ -50,6 +51,9 @@ aplicacao.use("/viagem", viagemRotas);
 
 const motoristaRotas = require("./routes/motoristaRotas");
 aplicacao.use("/motorista", motoristaRotas);
+
+const clienteRotas = require("./routes/clienteRotas");
+aplicacao.use("/cliente", clienteRotas);
 
 // Inicia o servidor/aplicação somente depois de conectar ao BD
 conexaoBD
