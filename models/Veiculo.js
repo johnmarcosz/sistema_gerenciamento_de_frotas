@@ -9,11 +9,6 @@ const Veiculo = bancoDeDados.define("Veiculo", {
         allowNull: false
     },
 
-    descricao:{
-        type: DataTypes.STRING(150),
-        allowNull: false
-    },
-
     tipo:{
         type: DataTypes.STRING(80),
         allowNull: false

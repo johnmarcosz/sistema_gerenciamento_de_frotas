@@ -52,7 +52,6 @@ module.exports = class VeiculoController {
     static criarVeiculoPost(req, res) {
 
         const veiculo = {
-            descricao: req.body.descricao,
             placa: req.body.placa,
             tipo: req.body.tipo,
             numeroRenavam: req.body.numeroRenavam,
@@ -96,7 +95,6 @@ module.exports = class VeiculoController {
         const id = req.body.id
 
         const veiculo = {
-            descricao: req.body.descricao,
             placa: req.body.placa,
             tipo: req.body.tipo,
             numeroRenavam: req.body.numeroRenavam,
