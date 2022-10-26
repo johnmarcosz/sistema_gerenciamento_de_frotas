@@ -1,55 +1,48 @@
-<title>Veículos | Consulta</title>
-
 <div class="container-xl">
 
-    <div class="table">
+    <div class="table-responsive">
         <div class="table-wrapper">
 
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h4>Veículos cadastrados</h4>
+                        <h4>Usuários</h4>
                     </div>
                     <div class="col-sm-7">
-                        <a href="/veiculo/criar" class="btn btn-success">
-                            <i class="bi bi-plus-circle"></i>
-                            <span>Novo</span>
-                        </a>
+                        <a href="/usuario/criar" class="btn btn-success"><i class="bi bi-plus-circle-fill"></i><span>
+                                Novo</span></a>
                     </div>
                 </div>
             </div>
 
-            <hr class="dropdown-divider">
-
-            <table id="tabela" class="table table-striped pb-3" style="width:100%">
+            <table id="tabela" class="table table-striped" style="width:100%">
 
                 <thead>
-                    <tr class="text-center align-middle">
-                        <th class="text-center">Placa</th>
-                        <th class="text-center col-2">Tipo</th>
-                        <th class="text-center">Renavam</th>
-                        <th class="text-center">Validade CSV</th>
-                        <th class="text-center">Validade LIT</th>
-                        <th class="text-center">Capacidade de Passageiros</th>
-                        <th class="text-center">Ano do veículo</th>
-                        <th>Ações</th>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>E-mail</th>
+                        <th>Data  de Criação</th>
+                        <th>Usuario Criador</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each resultado}}
                     <tr>
-                        <td class="text-center">{{this.placa}}</td>
-                        <td class="text-center">{{this.tipo}}</td>
-                        <td class="text-center">{{this.numeroRenavam}}</td>
-                        <td class="text-center">{{this.validadeCsv}}</td>
-                        <td class="text-center">{{this.validadeLit}}</td>
-                        <td class="text-center">{{this.capacidadePassageiros}}</td>
-                        <td class="text-center">{{this.ano}}</td>
+                        <td>{{this.username}}</td>
+                        <td>{{this.nome}}</td>
+                        <td>{{this.sobrenome}}</td>
+
+                        <td>{{this.email}}</td>
+                        <td>{{this.createdAt}}</td>
+                         <td>{{this.usuarioCriacao}}</td>
+                        
                         <td>
                             <span class="actions">
-                                <a href="/veiculo/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
+                                <a href="/usuario/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
                                         id="lapis"></i></a>
-                                <form action="/veiculo/remover" method="POST">
+                                <form action="/usuario/remover" method="POST">
                                     <input type="hidden" name="id" value={{this.id}}>
                                     <button type="submit" data-toggle="tooltip" data-placement="top"
                                         data-title="Excluir">
@@ -95,11 +88,11 @@
                 }
             ],
             columnDefs: [
-                /*{
+                {
                     targets: 3,
                     render: $.fn.dataTable.render.number('.', ',', 2, ''),
                     className: "dt-right",
-                },*/
+                },
                 {
                     targets: 4,
                     className: "dt-center",
@@ -108,6 +101,6 @@
             order: [[0, 'desc']],
 
         });
-        $('.dataTables_length').addClass('bs-select');
+
     });
-</script> 
+</script>

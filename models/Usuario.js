@@ -18,7 +18,7 @@ const Usuario = bancoDeDados.define("Usuario", {
 
     email:{
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
 
     nome:{
@@ -33,7 +33,7 @@ const Usuario = bancoDeDados.define("Usuario", {
 
     usuarioCriacao:{
         type: DataTypes.STRING(20),
-        allowNull: false
+        allowNull: true
     },
 
     ultimoAcesso:{
