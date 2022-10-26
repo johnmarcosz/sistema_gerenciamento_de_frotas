@@ -50,12 +50,12 @@ aplicacao.use(
 // Importa os Models para a criação das tabelas
 const Usuario = require("./models/Usuario");
 const Motorista = require("./models/Motorista"); 
-const Pessoa = require("./models/Pessoa");
+//const Pessoa = require("./models/Pessoa");
 const Viagem = require("./models/Viagem");
 const Veiculo = require("./models/Veiculo");
-const Viagem_Veiculos = require("./models/Viagem_Veiculos");
+//const Viagem_Veiculos = require("./models/Viagem_Veiculos");
 const Orcamento = require("./models/Orcamento");
-
+const Cliente = require("./models/Cliente");
 
 // importa a verificaSessao
 const verificaSessao = require("./models/sessao").verificaSessao;
@@ -87,6 +87,9 @@ aplicacao.use("/viagem", viagemRotas);
 
 const motoristaRotas = require("./routes/motoristaRotas");
 aplicacao.use("/motorista", motoristaRotas);
+
+const clienteRotas = require("./routes/clienteRotas");
+aplicacao.use("/cliente", clienteRotas);
 
 const usuarioRotas = require("./routes/usuarioRotas.js");
 aplicacao.use("/usuario", usuarioRotas);
