@@ -3,8 +3,6 @@ const Veiculo = require('../models/Veiculo')
 
 const { Op } = require('sequelize')
 const banco_de_dados = require("../banco_de_dados/conexaoBD");
-const Viagem_Motoristas = require('../models/Viagem_Motoristas');
-
 
 module.exports = class ViagemController {
 
@@ -29,20 +27,6 @@ module.exports = class ViagemController {
             }
 
             const resultado = data.map((result) => result.get({ plain: true }))
-
-            for (var index in resultado) {
-                resultado[index].dataPartida = resultado[index].dataPartida.toLocaleDateString('pt-BR')
-                resultado[index].dataRetorno = resultado[index].dataRetorno.toLocaleDateString('pt-BR')
-
-                if(resultado[index].dataPartida == 'Invalid Date'){
-                    resultado[index].dataPartida = "Não informado"
-                }
-                if(resultado[index].dataRetorno == 'Invalid Date'){
-                    resultado[index].dataRetorno = "Não informado"
-                }
-
-            }
-
             res.render('viagem/listar', { resultado, quantidade })
 
         })
@@ -61,95 +45,35 @@ module.exports = class ViagemController {
     // --------------------------------------------------------------------------
     // FUNÇÃO PARA CRIAR VIAGEM
     // --------------------------------------------------------------------------
-    static async criarViagemPost(req, res) {
+    static criarViagemPost(req, res) {
 
         const viagem = {
             valorTotal: req.body.valorTotal,
             origem: req.body.origem,
             destino: req.body.destino,
-            VeiculoId: req.body.postIdVeiculo,
             dataPartida: req.body.dataPartida,
             dataRetorno: req.body.dataRetorno,
             usuarioCriacao: "john"
         }
-
-        // Transformando os IDs em lista
-        const idsMotoristas = req.body.postIdMotoristas.split(",")
-
-        const viagemCriada = await Viagem.create(viagem)
-
-        var lista_viagem_motoristas = []
-
-        // Criando os registros viagem_motoristas
-        idsMotoristas.forEach(async function(idMotorista){
-
-            var viagem_motoristas = {
-                MotoristaId: idMotorista,
-                ViagemId: viagemCriada.id
-            }
-            
-            const viagem_motorista_criado = await Viagem_Motoristas.create(viagem_motoristas)
-            lista_viagem_motoristas.push(viagem_motorista_criado)
-
-        })
-
-        // Se der tudo certo salva a viagem
-        await viagemCriada.save().then(() => {
-
-            console.log("Viagem criada com sucesso!")
-
-            lista_viagem_motoristas.forEach(function(viagem_motorista_criado){
-
-                viagem_motorista_criado.save()
-                .then(() => {
-                    console.log("viagem_motorista criado com sucesso!")
-                })
-                .catch((err) => {
-                    console.log("Erro ao criar viagem_motorista: " + err)
-                    viagem_motorista_criado.destroy()
-                    viagemCriada.destroy()
-                })
+        console.log(viagem)
+        Viagem.create(viagem)
+            .then(() => {
+                res.redirect('/viagem/')
             })
-
-        })
-        .catch((err) => {
-            console.log("Erro ao criar viagem: " + err)
-
-            viagemCriada.destroy()
-            lista_viagem_motoristas.forEach(function(viagem_motorista_criado){
-                viagem_motorista_criado.destroy()
-            })
-
-        })
-
-        res.redirect('/viagem/')
-        
+            .catch((err) => console.log(err))
     }
 
 
     // --------------------------------------------------------------------------
     // FUNÇÃO PARA REDIRECIONAR PARA A PÁGINA DE EDITAR VIAGEM
     // --------------------------------------------------------------------------
-    static async editarViagem(req, res) {
+    static editarViagem(req, res) {
 
         const id = req.params.id
 
         Viagem.findOne({ where: { id: id }, raw: true })
-            .then(async (viagem) => {
-
-                var veiculo = await Veiculo.findOne({
-                    where: {
-                       id: viagem.VeiculoId
-                    }
-                })
-
-                var motoristas = await Viagem_Motoristas.findAll({
-                    where: {
-                      ViagemId: viagem.id
-                    }
-                })
-                
-                res.render('viagem/editar', { viagem : viagem, veiculo : veiculo, motoristas : motoristas })
+            .then((viagem) => {
+                res.render('viagem/editar', { viagem })
             })
             .catch((err) => console.log(err))
     }

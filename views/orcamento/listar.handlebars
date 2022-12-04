@@ -1,60 +1,64 @@
-<title>Veículos | Consulta</title>
 <div class="container-xl">
-    <div class="table">
+    <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h4>Veículos cadastrados</h4>
+                        <h4>Orcamentos</h4>
                     </div>
                     <div class="col-sm-7">
-                        <a href="/veiculo/criar" class="btn btn-success">
-                            <i class="bi bi-plus-circle"></i>
-                            <span>Novo</span>
-                        </a>
+                        <a href="/orcamento/criar" class="btn btn-success"><i class="bi bi-plus-circle-fill"></i><span>
+                                Novo</span></a>
                     </div>
                 </div>
             </div>
-            <hr class="dropdown-divider">
-            <table id="tabela" class="table table-striped pb-3" style="width:100%">
 
+            <hr class="dropdown-divider">
+
+            <table id="tabela" class="table table-striped" style="width:100%">
                 <thead>
-                    <tr class="text-center align-middle">
-                        <th class="text-left">Descrição</th>
-                        <th class="text-center col-2">Tipo</th>
-                        <th class="text-center">Placa</th>
-                        <th class="text-center">Ano</th>
-                        <th class="text-center col-2">Capacidade</th>
-                        <th class="text-center col-2">RENAVAM</th>
-                        <th class="text-center">Validade Inspeção</th>
-                        <th class="text-center">Validade Apólice</th>
-                        <th>Ações</th>
+                    <tr>
+                        <th>#</th>
+                        <th>Valor</th>
+                        <th>Valor Km rodado</th>
+                        <th>Distância</th>
+                        <th>Consumo</th>
+                        <th>Preço Combustível</th>
+                        <th>Lucro</th>
+                        <th>Lucro Percentual</th>
+                        <th>Custos Extras</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each resultado}}
                     <tr>
-                        <td class="text-left">{{this.descricao}}</td>
-                        <td class="text-center">{{this.tipo}}</td>
-                        <td class="text-center">{{this.placa}}</td>
-                        <td class="text-center">{{this.ano}}</td>
-                        <td class="text-center">{{this.capacidadePassageiros}}</td>
-                        <td class="text-center">{{this.numeroRenavam}}</td>
-                        <td class="text-center">{{this.validadeInspecao}}</td>
-                        <td class="text-center">{{this.validadeApolice}}</td>
+                        <td>{{this.id}}</td>
+                        <td>{{this.valor}}</td>
+                        <td>{{this.valorKm}}</td>
+                        <td>{{this.distanciaKm}}</td>
+                        <td>{{this.consumo}}</td>
+                        <td>{{this.precoCombustivel}}</td>
+                        <td>{{this.lucroValor}}</td>
+                        <td>{{this.lucroPercentual}}</td>
+                        <td>{{this.custosExtras}}</td>
                         <td>
                             <span class="actions">
-                                <a href="/veiculo/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
+                                <a href="/orcamento/visualizar/{{this.id}}" data-title="Visualizar"><i class="bi bi-arrows-fullscreen"
                                         id="lapis"></i></a>
-                                <button type="button" data-placement="top" data-toggle="modal" id="botaoExcluir"
+                                <form action="/orcamento/remover" method="POST">
+                                    <input type="hidden" name="id" value={{this.id}}>
+                                    <button type="button" data-placement="top" data-toggle="modal" id="botaoExcluir"
                                     data-target="#modal" data-title="Excluir" onClick="atualizarForm({{this.id}})">
-                                    <i class="bi bi-trash3-fill" id="lixeira"></i>
-                                </button>
+                                        <i class="bi bi-trash3-fill" id="lixeira"></i>
+                                    </button>
+                                </form>
                             </span>
                         </td>
                     </tr>
                     {{/each}}
                 </tbody>
+                <tfoot>
+                </tfoot>
             </table>
         </div>
     </div>
@@ -72,7 +76,7 @@
             </div>
             <div class="modal-body">
                 Deseja mesmo excluir este cadastro?<br>
-                Esta alteração irá apagar todas as viagens com este veículo.
+                Esta alteração irá apagar todas as viagens deste cliente.
             </div>
             <div class="modal-footer">
                 <form action="" method="POST" id="formExcluir">
@@ -85,7 +89,6 @@
         </div>
     </div>
 </div>
-
 
 <!--Js do datatable com exportações-->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -109,29 +112,28 @@
                 {
                     extend: 'collection',
                     text: 'Exportar',
-                    buttons: ['pdf', 'excel', 'csv', 'print'],
+                    buttons: ['pdf', 'print'],
                 }
             ],
             columnDefs: [
-                /*{
-                    targets: 3,
-                    render: $.fn.dataTable.render.number('.', ',', 2, ''),
-                    className: "dt-right",
-                },*/
                 {
-                    //targets: 4,
-                    //className: "dt-center",
+                    targets: 3,
+                    //render: $.fn.dataTable.render.number('.', ',', 2, ''),  formatar exibição de dados na tela
+                    className: "dt-right",
+                },
+                {
+                    targets: 4,
+                    className: "dt-center",
                 }
             ],
             order: [[0, 'desc']],
 
         });
-        $('.dataTables_length').addClass('bs-select');
+
     });
 
-
     function atualizarForm(id = "") {
-        document.getElementById("formExcluir").action = "/veiculo/remover"
+        document.getElementById("formExcluir").action = "/orcamento/remover"
         document.getElementById("idItem").value = id
     }
 </script>

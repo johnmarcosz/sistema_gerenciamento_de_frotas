@@ -21,17 +21,17 @@ const Veiculo = bancoDeDados.define("Veiculo", {
 
     numeroRenavam:{
         type: DataTypes.STRING(11),
-        allowNull: false
+        allowNull: true
     },
 
-    validadeCsv:{
+    validadeInspecao:{
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: true
     },
 
-    validadeLit:{
+    validadeApolice:{
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: true
     },
 
     capacidadePassageiros:{

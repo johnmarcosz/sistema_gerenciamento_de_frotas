@@ -1,42 +1,64 @@
-<div class="container-xl">
-    <div class="table-responsive">
-        <div class="table-wrapper" style="max-width: 600px; margin: auto;">
-            <div class="table-title">
-                <div class="row">
-                    <div class="col-mb-3">
-                        <h4>Editar Cliente</h4>
+<title>Cliente | Editar</title>
+
+<div class="container-x1 px-4 h-100">
+
+    <form action="/cliente/editarPost" method="POST">
+    <input type="hidden" name="id" id="id" value={{cliente.id}}>
+
+        <div class="col-mb-3">
+            <h4>Editar Cliente</h4>
+        </div>
+
+        <hr>
+
+
+            <div class="form-row row">
+                <div class="form-group col mb-3">
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo *</label><br>
+                        <input class="form-check-input" type="radio" id="F" name="tipo" value="F" required>
+                        <label class="form-check-label m-6 " for="f" class="ml-3">Pessoa Física</label>
+                        <input class="form-check-input" type="radio" id="J" name="tipo" value="J">
+                        <label class="form-check-label m-6" for="age2">Pessoa Jurídica</label>
                     </div>
                 </div>
             </div>
 
-            <form action="/viagem/editarPost" method="POST">
-                <input type="hidden" name="id" value={{viagem.id}}>
-                <div class="mb-3">
-                    <label for="tipo" class="form-label">Tipo (F/J)</label>
-                    <input type="text" class="form-control" name="tipo" placeholder="F ou J" SIZE=1 MAXLENGTH=1 >
+            <div class="form-row row">
+                <div class="form-group col mb-3">
+                    <label for="nomeRazaoSocial" class="form-label">Nome/Razão Social *</label>
+                    <input type="text" class="form-control" name="nomeRazaoSocial"
+                        placeholder="Nome/Razão Social do Cliente" value={{cliente.nomeRazaoSocial}} required>
                 </div>
-                <div class="mb-3">
-                    <label for="nomeRazaoSocial" class="form-label">Nome/Razão Social</label>
-                    <input type="text" class="form-control" name="nomeRazaoSocial" placeholder="Nome/Rasão Social do Cliente">
+
+                <div class="form-group col mb-3">
+                    <label for="nomeFantasia" claSs="form-label">Nome Fantasia</label>
+                    <input type="text" class="form-control" name="nomeFantasia" placeholder="Nome Fantasia do Cliente" value={{cliente.nomeFantasia}}>
                 </div>
-                <div class="mb-3">
-                    <label for="nomeFantasia" claSs="form-label">Nome Fantasia (opcional)</label>
-                    <input type="text" class="form-control" name="nomeFantasia" placeholder="Nome Fantasia (opcional)">
-                </div>
-                 <div class="mb-3">
-                    <label for="cpfCnpj" class="form-label">CPF/CNPJ</label>
-                    <input type="text" class="form-control" name="cpfCnpj" placeholder="CPF/CNP" SIZE=14 MAXLENGTH=14 >
-                </div>
-                 <div class="mb-3">
-                    <label for="telefone" class="form-label">Telefone </label>
-                    <input type="text" class="form-control" name="telefone" placeholder="Telefone" SIZE=11 MAXLENGTH=11>
-                </div>
-                <center>
-                <button type="submit" class="btn btn-success"><i class="bi bi-check-circle-fill"></i> Salvar</button>
-                <a href="/viagem" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
-                </center>
             </div>
-            </form>
-        </div>
-    </div>
+
+            <div class="form-row row">
+                <div class="form-group col mb-3">
+                    <label for="cpfCnpj" class="form-label">CPF/CNPJ *</label>
+                    <input type="text" class="form-control" name="cpfCnpj" placeholder="apenas números" SIZE=14
+                        MAXLENGTH=14 value={{cliente.cpfCnpj}} required>
+                </div>
+                <div class="form-group col mb-3">
+                    <label for="telefone" class="form-label">Telefone *</label>
+                    <input type="tel" class="form-control" name="telefone" placeholder="apenas números" SIZE=12
+                        MAXLENGTH=12 value={{cliente.telefone}} required>
+                </div>
+                <div class="form-group col mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" name="email" placeholder="exemplo@exemplo.com.br" value={{cliente.email}}>
+                </div>
+            </div>
+
+            <center class="mt-3">
+                <button type="submit" class="btn btn-success"><i class="bi bi-check-circle-fill"></i>
+                    Salvar</button>
+                <a href="/cliente" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
+            </center>
+
+        </form>
 </div>

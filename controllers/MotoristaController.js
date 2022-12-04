@@ -24,7 +24,7 @@ module.exports = class MotoristaController {
         const resultado = data.map((result) => result.get({ plain: true }))
         for (var index in resultado) {
           resultado[index].validadeCNH = resultado[index].validadeCNH.toLocaleDateString('pt-BR')
-          resultado[index].numeroCNH = resultado[index].numeroCNH.toString()
+          resultado[index].dataAdmissao = resultado[index].dataAdmissao.toLocaleDateString('pt-BR')
 
         }
 
@@ -44,6 +44,7 @@ module.exports = class MotoristaController {
       nome: req.body.nome,
       cpf: req.body.cpf,
       numeroCNH: req.body.numeroCNH,
+      dataAdmissao: req.body.dataAdmissao,
       validadeCNH: req.body.validadeCNH,
       categoriaCNH: req.body.categoriaCNH,
       usuarioCriacao: "Douglas"
@@ -61,6 +62,7 @@ module.exports = class MotoristaController {
     Motorista.findOne({ where: { id: id }, raw: true })
       .then((motorista) => {
           motorista.validadeCNH = motorista.validadeCNH.toLocaleDateString('en-CA')
+          motorista.dataAdmissao = motorista.dataAdmissao.toLocaleDateString('en-CA')
         
         res.render('motorista/editar', { motorista })
       })
@@ -74,6 +76,7 @@ module.exports = class MotoristaController {
       nome: req.body.nome,
       cpf: req.body.cpf,
       numeroCNH: req.body.numeroCNH,
+      dataAdmissao: req.body.dataAdmissao,
       validadeCNH: req.body.validadeCNH,
       categoriaCNH: req.body.categoriaCNH,
       usuarioCriacao: "Douglas"

@@ -1,53 +1,43 @@
 const { DataTypes } = require("sequelize")
 
-
 const bancoDeDados = require("../banco_de_dados/conexaoBD")
-
-const Cliente = require("../models/Cliente")
 
 const Orcamento = bancoDeDados.define("Orcamento", {
 
     valor:{
         type: DataTypes.DECIMAL(10,2),
-        allowNull: false
+        allowNull: true
     },
-
+    valorKm:{
+        type: DataTypes.DECIMAL(10,2),
+        allowNull: true
+    },
     distanciaKm:{
-        type: DataTypes.DECIMAL(10,2),
-        allowNull: false
-    },
-
-    consumo:{
-        type: DataTypes.DECIMAL(10,2),
-        allowNull: false
-    },
-
-    precoCombustivel:{
-        type: DataTypes.DECIMAL(10,2),
-        allowNull: false
-    },
-    
-    decrementoVeiculo:{
-        type: DataTypes.DECIMAL(10,2),
-        allowNull: false
-    },
-
-    lucroValor:{
-        type: DataTypes.DECIMAL(10,2),
-        allowNull: false
-    },
-
-    lucroPercentual:{
-        type: DataTypes.DECIMAL(10,2),
-        allowNull: false
-    },
-
-    comissaoPercentual:{
         type: DataTypes.DECIMAL(10,2),
         allowNull: true
     },
 
-    comissaoValor:{
+    consumo:{
+        type: DataTypes.DECIMAL(10,2),
+        allowNull: true
+    },
+
+    precoCombustivel:{
+        type: DataTypes.DECIMAL(10,2),
+        allowNull: true
+    },
+    
+    decrementoVeiculo:{
+        type: DataTypes.DECIMAL(10,2),
+        allowNull: true
+    },
+
+    lucroValor:{
+        type: DataTypes.DECIMAL(10,2),
+        allowNull: true
+    },
+
+    lucroPercentual:{
         type: DataTypes.DECIMAL(10,2),
         allowNull: true
     },
@@ -56,10 +46,13 @@ const Orcamento = bancoDeDados.define("Orcamento", {
         type: DataTypes.DECIMAL(10,2),
         allowNull: true
     },
-
+    custoFinal:{
+        type: DataTypes.DECIMAL(10,2),
+        allowNull: true
+    },
     usuarioCriacao:{
         type: DataTypes.STRING(20),
-        allowNull: false
+        allowNull: true
     },
 
     ultimoAcesso:{
@@ -69,7 +62,4 @@ const Orcamento = bancoDeDados.define("Orcamento", {
 
 })
 
-Orcamento.belongsTo(Cliente)
-Cliente.hasOne(Orcamento)
-
-module.exports = Orcamento
+module.exports = Orcamento;

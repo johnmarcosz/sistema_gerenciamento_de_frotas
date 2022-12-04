@@ -27,8 +27,8 @@ module.exports = class VeiculoController {
             const resultado = data.map((result) => result.get({ plain: true }))
 
             for(var index in resultado){
-                resultado[index].validadeCsv =  resultado[index].validadeCsv.toLocaleDateString('pt-BR')
-                resultado[index].validadeLit =  resultado[index].validadeLit.toLocaleDateString('pt-BR')
+                resultado[index].validadeInspecao =  resultado[index].validadeInspecao.toLocaleDateString('pt-BR')
+                resultado[index].validadeApolice =  resultado[index].validadeApolice.toLocaleDateString('pt-BR')
             }
 
             res.render('veiculo/listar', { resultado, quantidade })
@@ -56,8 +56,8 @@ module.exports = class VeiculoController {
             placa: req.body.placa,
             tipo: req.body.tipo,
             numeroRenavam: req.body.numeroRenavam,
-            validadeCsv: req.body.validadeCsv,
-            validadeLit: req.body.validadeLit,
+            validadeInspecao: req.body.validadeInspecao,
+            validadeApolice: req.body.validadeApolice,
             capacidadePassageiros: req.body.capacidadePassageiros,
             ano: req.body.ano,
             usuarioCriacao: "john"
@@ -80,8 +80,8 @@ module.exports = class VeiculoController {
 
         Veiculo.findOne({ where: { id: id }, raw: true })
             .then((veiculo) => {
-                veiculo.validadeCsv = veiculo.validadeCsv.toLocaleDateString('en-CA')
-                veiculo.validadeLit = veiculo.validadeLit.toLocaleDateString('en-CA')
+                veiculo.validadeInspecao = veiculo.validadeInspecao.toLocaleDateString('en-CA')
+                veiculo.validadeApolice = veiculo.validadeApolice.toLocaleDateString('en-CA')
                 res.render('veiculo/editar', { veiculo })
             })
             .catch((err) => console.log(err))
@@ -100,8 +100,8 @@ module.exports = class VeiculoController {
             placa: req.body.placa,
             tipo: req.body.tipo,
             numeroRenavam: req.body.numeroRenavam,
-            validadeCsv: req.body.validadeCsv,
-            validadeLit: req.body.validadeLit,
+            validadeInspecao: req.body.validadeInspecao,
+            validadeApolice: req.body.validadeApolice,
             capacidadePassageiros: req.body.capacidadePassageiros,
             ano: req.body.ano
         }

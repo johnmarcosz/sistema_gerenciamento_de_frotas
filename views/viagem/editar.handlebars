@@ -1,381 +1,51 @@
-<div class="container-xl px-4 h-100">    
-
-    <form action="/viagem/criarPost" method="POST" class="h-100" id="formularioViagem" onsubmit="return enviarFormulario()">
-
-        <div class="col-mb-3">
-            <h4>Editar Viagem</h4>
-        </div>
-
-        <hr>
-
-        <input type="hidden" name="id" value="{{viagem.id}}">
-
-        <input type="text" class="form-control" id="postIdMotoristas" name="postIdMotoristas" hidden>
-        <input type="text" class="form-control" id="postIdVeiculo" name="postIdVeiculo" hidden>
-
-        <div class="form-row row">
-
-            <div class="form-group col mb-3">
-                <label for="origem" class="form-label">Origem</label>
-                <input type="text" class="form-control" name="origem" placeholder="Origem da viagem" value="{{viagem.origem}}" required>
-            </div>
-
-            <div class="form-group col mb-3">
-                <label for="destino" class="form-label">Destino</label>
-                <input type="text" class="form-control" name="destino" placeholder="Destino da viagem" value="{{viagem.destino}}" required>
-            </div>
-    
-        </div>
-
-        <div class="form-row row">
-
-            <div class="col mb-3">
-                <label for="dataPartida" class="form-label">Data de partida</label>
-                <input type="datetime-local" class="form-control" name="dataPartida" value="{{viagem.dataPartida}}">
-            </div>
-
-            <div class="col mb-3">
-                <label for="dataRetorno" class="form-label">Data de retorno</label>
-                <input type="datetime-local" class="form-control" name="dataRetorno" value="{{viagem.dataRetorno}}">
-            </div>
-
-            <div class="col">
-
-                <label for="valorTotal" class="form-label">Custo total</label>
-
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">R$</div>
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper" style="max-width: 600px; margin: auto;">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-mb-3">
+                        <h4>Editar Viagem</h4>
                     </div>
-                
-                    <input type="text" step="0.01" class="form-control" id="valorTotal" name="valorTotal" placeholder="Custo da viagem" value="{{viagem.valorTotal}}" required>
                 </div>
-                
-            </div>
-            
-        </div>
-
-
-        <label for="motorista" class="form-label">Motorista</label>
-        <div class="form-row d-flex row mx-auto">
-
-            <div class="col" style="padding-left: 0;">
-
-                <input type="text" class="form-control form-select" id="autocomplete_busca_motorista" autocomplete="off" placeholder="Digite para buscar" >
-                <span id="resultado_busca_motorista" class="w-100"></span>
-
             </div>
 
-            <a href="#" id="botaoLimparItemMotorista" class="btn btn-outline-secondary col-1 disabled" onclick="limparItem('MOTORISTA')" style="margin-right: 11px;"><i class="bi bi-trash3-fill"></i></a>
-            <a href="#" id="botaoAdicionarItemMotorista" class="btn btn-success col-1 disabled" onclick="adicionarItem()"><i class="bi bi-plus-circle"></i></a>
+            <form action="/viagem/editarPost" method="POST">
+                <input type="hidden" name="id" value={{viagem.id}}>
+                                    <div class="mb-3">
+                        <label for="origem" class="form-label">Origem</label>
+                        <input type="text" class="form-control" name="origem" placeholder="Origem da viagem">
+                    </div>
 
-        </div>
+                    <div class="mb-3">
+                        <label for="destino" class="form-label">Destino</label>
+                        <input type="text" class="form-control" name="destino" placeholder="Destino da viagem">
+                    </div>
 
-        <span id="itens_selecionados" class="w-100">
-            {{!-- Arrumando --}}
-            {{#each motoristas}}
-                {{this}}
-            {{/each}}
+                    <div class="mb-3">
+                        <label for="dataPartida" class="form-label">Data de partida</label>
+                        <input type="datetime-local" class="form-control" name="dataPartida">
+                    </div>
 
-        </span>
+                    <div class="mb-3">
+                        <label for="dataRetorno" class="form-label">Data de retorno</label>
+                        <input type="datetime-local" class="form-control" name="dataRetorno">
+                    </div>
 
-        <label for="veiculo" class="form-label pt-3">Veículo</label>
-        <div class="form-row d-flex row mx-auto">
+                    <div class="mb-3">
+                        <label for="veiculo" class="form-label">Veículo</label>
+                        <input type="text" step="0.01" class="form-control" name="veiculo">
+                    </div>
 
-            <div class="col" style="padding-left: 0;">
-
-                <input type="text" class="form-control form-select" id="autocomplete_busca_veiculo" autocomplete="off" placeholder="Digite para buscar" value="{{veiculo.descricao}} | Placa: {{veiculo.placa}}" required>
-                <span id="resultado_busca_veiculo" class="w-100"></span>
-
+                    <div class="mb-3">
+                        <label for="valorTotal" class="form-label">Valor total</label>
+                        <input type="text" step="0.01" class="form-control" name="valorTotal" placeholder="Custo da viagem">
+                    </div>
+                <center>
+                <button type="submit" class="btn btn-success"><i class="bi bi-check-circle-fill"></i> Salvar</button>
+                <a href="/viagem" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
+                </center>
             </div>
-
-            <a href="#" id="botaoLimparItemVeiculo" class="btn btn-outline-secondary col-1 disabled" onclick="limparItem('VEICULO')" style="margin-right: 11px;"><i class="bi bi-trash3-fill"></i></a>
+            </form>
         </div>
-
-        <center>
-
-            <hr>
-
-            <button type="submit" class="btn btn-success col-2"><i class="bi bi-check-circle-fill"></i>
-                Salvar</button>
-            <a href="/viagem" class="btn btn-danger col-2"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
-
-        </center>
-        
-
-    </form>
-    
+    </div>
 </div>
-
-<script>
-
-    // Variáveis Motorista
-    input_busca_motorista = document.getElementById("autocomplete_busca_motorista")
-    botao_adicionar_item_motorista = document.getElementById("botaoAdicionarItemMotorista")
-    botao_limpar_item_motorista = document.getElementById("botaoLimparItemMotorista")
-    itensAdicionadosMotoristas = []
-    itensRetornadosMotoristas = ''
-    itemSelecionadoMotorista = ''
-    ultimaBuscaMotorista = ''
-    postIdMotoristas = ""
-
-    // Variáveis Veiculos
-    input_busca_veiculo = document.getElementById("autocomplete_busca_veiculo")
-    botao_adicionar_item_veiculo = document.getElementById("botaoAdicionarItemVeiculo")
-    botao_limpar_item_veiculo = document.getElementById("botaoLimparItemVeiculo")
-    veiculoEscolhido = ""
-    itensRetornadosVeiculos = ''
-    itemSelecionadoVeiculo = ''
-    ultimaBuscaVeiculo = ''
-
-
-    // ------------------ MOTORISTA ------------------
-
-    // Realiza uma nova busca no banco a cada letra digitada 
-    input_busca_motorista.onkeyup = function () { 
-        var query = input_busca_motorista.value
-        realizar_busca_motorista(query)
-    }
-
-
-    // Busca dinâmica / autocomplete
-    function realizar_busca_motorista(query = '') {
-
-        ultimaBuscaMotorista = query
-
-        // Se não foi digitado nada, não realizar a consulta
-        if (query == "" || query == " ") {
-            return
-        }
-
-        fetch(`/viagem/buscarMotorista?texto_busca=${query}`).then(function (resposta) {
-            return resposta.json()
-
-        }).then(function (resultadoConsulta) {
-
-            if (resultadoConsulta.length > 0) {
-
-                itensRetornadosMotoristas = resultadoConsulta
-                html = '<div class="position-relative" id="itens_resultado_motoristas"  style="z-index: 999;">' +
-                    '<ul class="list-group position-absolute" style="left:0; right:0;">'
-
-                for (var i = 0; i < itensRetornadosMotoristas.length; i++) {
-
-                    // Serve para deixar destacado o texto pesquisado nos resultados retornados
-                    var expressao_regular = new RegExp('(' + query + ')', 'gi')
-
-                    html += `<a href="#" onclick="atualizarValorInput('MOTORISTA', ${itensRetornadosMotoristas[i].id})" class="list-group-item list-group-item-action">
-                         ${itensRetornadosMotoristas[i].nome.replace(expressao_regular, '<span class="text-primary fw-bold">$1</span>')} | CPF:
-                         ${itensRetornadosMotoristas[i].cpf.replace(expressao_regular, '<span class="text-primary fw-bold">$1</span>')}
-                        </a>`
-                }
-
-                html += '</ul> </div>'
-                document.getElementById("resultado_busca_motorista").innerHTML = html
-            } else {
-                fecharResultados('MOTORISTA')
-            }
-        })
-    }
-
-
-    // Criando a lista de itens selecionados
-    function adicionarItem(){
-
-        html = `<ul id="itemAdicionado${itemSelecionadoMotorista.id}" class="p-0 mx-0 mt-1 list-group-item rounded d-flex align-items-center justify-content-between list-group-item-light">
-                    ${itemSelecionadoMotorista.nome} | CPF: ${itemSelecionadoMotorista.cpf}
-                    <a class="btn btn-outline-danger ml-auto pr-0" onclick="removerItem(${itemSelecionadoMotorista.id})">Remover</a>
-                </ul>`
-
-      document.getElementById("itens_selecionados").innerHTML += html
-      input_busca_motorista.value = ""
-      // Adiciona item na lista de IDs que irá para o banco de dados
-      itensAdicionadosMotoristas.push(itemSelecionadoMotorista.id)
-      itemSelecionadoMotorista = ""
-    }
-
-
-    // Removendo itens selecionados
-    function removerItem(idItem = ""){
-
-        item = document.getElementById('itemAdicionado' + idItem)
-        item.remove()
-        // Remove item da lista de IDs que irá para o banco de dados
-        itensAdicionadosMotoristas.splice( itensAdicionadosMotoristas.indexOf(idItem), 1)
-    }
-
-
-    // ------------------ VEICULO ------------------
-
-    // Realiza uma nova busca no banco a cada letra digitada 
-    input_busca_veiculo.onkeyup = function () { 
-        var query = input_busca_veiculo.value
-        realizar_busca_veiculo(query)
-    }
-
-    // Busca dinâmica / autocomplete
-    function realizar_busca_veiculo(query = '') {
-
-        ultimaBuscaVeiculo = query
-
-        // Se não foi digitado nada, não realizar a consulta
-        if (query == "" || query == " ") {
-            return
-        }
-
-        fetch(`/viagem/buscarVeiculo?texto_busca=${query}`).then(function (resposta) {
-            return resposta.json()
-
-        }).then(function (resultadoConsulta) {
-
-            if (resultadoConsulta.length > 0) {
-
-                itensRetornadosVeiculos = resultadoConsulta
-                html = '<div class="position-relative" id="itens_resultado_veiculos" style="z-index: 999;">' +
-                    '<ul class="list-group position-absolute" style="left:0; right:0;">'
-
-                for (var i = 0; i < itensRetornadosVeiculos.length; i++) {
-
-                    // Serve para deixar destacado o texto pesquisado nos resultados retornados
-                    var expressao_regular = new RegExp('(' + query + ')', 'gi')
-
-                    html += `<a href="#" onclick="atualizarValorInput('VEICULO', ${itensRetornadosVeiculos[i].id})" class="list-group-item list-group-item-action">
-                         ${itensRetornadosVeiculos[i].descricao.replace(expressao_regular, '<span class="text-primary fw-bold">$1</span>')} | Placa:
-                         ${itensRetornadosVeiculos[i].placa.replace(expressao_regular, '<span class="text-primary fw-bold">$1</span>')}
-                        </a>`
-                }
-
-                html += '</ul> </div>'
-                document.getElementById("resultado_busca_veiculo").innerHTML = html
-            } else {
-                fecharResultados('VEICULO')
-            }
-        })
-    }
-
-
-    // ------------------ FUNÇÕES DUPLAS ------------------
-
-    // O parâmetro 'origem' sempre será 'MOTORISTA' ou 'VEICULO'
-
-    // Quando uma opção for selecionada, atualiza o valor do input com a descrição da opção selecionada
-    function atualizarValorInput(origem = "", idItemSelecionado = null) {
-
-        if(origem == 'MOTORISTA'){
-            itemSelecionadoMotorista = itensRetornadosMotoristas.find(item => item.id == idItemSelecionado);
-            input_busca_motorista.value = itemSelecionadoMotorista.nome + " | CPF: " + itemSelecionadoMotorista.cpf
-            botao_adicionar_item_motorista.classList.remove("disabled");
-            botao_limpar_item_motorista.classList.remove("disabled");
-            fecharResultados('MOTORISTA')
-
-        } else if(origem == 'VEICULO'){
-            itemSelecionadoVeiculo = itensRetornadosVeiculos.find(item => item.id == idItemSelecionado);
-            veiculoEscolhido = idItemSelecionado
-            input_busca_veiculo.value = itemSelecionadoVeiculo.descricao + " | Placa: " + itemSelecionadoVeiculo.placa
-            botao_limpar_item_veiculo.classList.remove("disabled");
-            fecharResultados('VEICULO')
-        }
-        
-    }
-
-    // Quando clicar fora da listagem/resultados da busca, fechar a listagem de itens e manter o item selecionado
-    window.onclick = function (evento) {
-
-        // VEÍCULO
-        // Se não tiver item selecionado ainda e foi clicado fora do input
-        if (itemSelecionadoMotorista == '' && evento.target.id != "autocomplete_busca_motorista") {
-            input_busca_motorista.value = ""
-            botao_adicionar_item_motorista.classList.add("disabled");
-            botao_limpar_item_motorista.classList.add("disabled");
-            fecharResultados('MOTORISTA')
-
-        // Se tiver item selecionado e foi clicado fora do input
-        } else if (itemSelecionadoMotorista != '' && evento.target.id != "autocomplete_busca_motorista") {
-            input_busca_motorista.value = itemSelecionadoMotorista.nome + " | CPF: " + itemSelecionadoMotorista.cpf
-            fecharResultados('MOTORISTA')
-
-        // Se tiver item selecionado e foi clicado dentro do input
-        } else if (itemSelecionadoMotorista != '' && evento.target.id == "autocomplete_busca_motorista") {
-            input_busca_motorista.value = ultimaBuscaMotorista
-            realizar_busca_motorista(ultimaBuscaMotorista)
-        }
-
-        
-        // VEICULO
-        // Se não tiver item selecionado ainda e foi clicado fora do input
-        if (itemSelecionadoVeiculo == '' && evento.target.id != "autocomplete_busca_veiculo") {
-            input_busca_veiculo.value = ""
-            botao_limpar_item_veiculo.classList.add("disabled");
-            fecharResultados('VEICULO')
-            return
-
-        // Se tiver item selecionado e foi clicado fora do input
-        } else if (itemSelecionadoVeiculo != '' && evento.target.id != "autocomplete_busca_veiculo") {
-            input_busca_veiculo.value = itemSelecionadoVeiculo.descricao + " | Placa: " + itemSelecionadoVeiculo.placa
-            fecharResultados('VEICULO')
-            return
-
-        // Se tiver item selecionado e foi clicado dentro do input
-        } else if (itemSelecionadoVeiculo != '' && evento.target.id == "autocomplete_busca_veiculo") {
-            input_busca_veiculo.value = ultimaBuscaVeiculo
-            realizar_busca_veiculo(ultimaBuscaVeiculo)
-            return
-        }
-    }
-
-    // Fechar os resultados da busca
-    function fecharResultados(origem = "") {
-
-        if(origem == 'MOTORISTA'){
-            var itens_resultado_motoristas = document.getElementById("itens_resultado_motoristas")
-            if (itens_resultado_motoristas) {
-                itens_resultado_motoristas.remove()
-            }
-        
-        } else if(origem == 'VEICULO'){
-            var itens_resultado_veiculos = document.getElementById("itens_resultado_veiculos")
-            if (itens_resultado_veiculos) {
-                itens_resultado_veiculos.remove()
-            }
-        }
-        
-    }
-
-    // Ao clicar no botão de lixeira, remove o item selecionado
-    function limparItem(origem = ""){
-
-        if(origem == 'MOTORISTA'){
-            input_busca_motorista.value = ""
-            itemSelecionadoMotorista = ""
-            botao_limpar_item_motorista.classList.add("disabled");
-            fecharResultados('MOTORISTA')
-        
-        } else if(origem == 'VEICULO'){
-            input_busca_veiculo.value = ""
-            itemSelecionadoVeiculo = ""
-            veiculoEscolhido = ""
-            botao_limpar_item_veiculo.classList.add("disabled");
-            fecharResultados('VEICULO')
-        }
-    }    
-    
-    // Enviando formulário
-    function enviarFormulario(){
-
-       formularioViagem = document.getElementById("formularioViagem")
-
-        if(formularioViagem.checkValidity()){
-
-            if(itensAdicionadosMotoristas == ""){
-                alert("Você precisa adicionar no mínimo 1 motorista para esta viagem.\nAdicione um ou mais e tente novamente!")
-                return false
-            }
-
-            document.getElementById("postIdMotoristas").value = itensAdicionadosMotoristas
-            document.getElementById("postIdVeiculo").value = veiculoEscolhido
-            formularioViagem.submit();
-        }        
-    }
-
-
-</script>

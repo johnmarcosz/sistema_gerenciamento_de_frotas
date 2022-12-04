@@ -21,30 +21,32 @@
 
                 <thead>
                     <tr>
-                        <th class="col">Origem</th>
-                        <th class="col">Destino</th>
-                        <th class="col text-center">Data de partida</th>
-                        <th class="col text-center">Data de retorno</th>
-                        <th class="col">Custo</th>
-                        <th class="col text-center">Ações</th>
+                        <th>Origem</th>
+                        <th>Destino</th>
+                        <th>Data de partida</th>
+                        <th>Data de retorno</th>
+                        <th>Veículo</th>
+                        <th>Custo</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each resultado}}
                     <tr>
-                        <td class="col">{{this.origem}}</td>
-                        <td class="col">{{this.destino}}</td>
-                        <td class="col text-center">{{this.dataPartida}}</td>
-                        <td class="col text-center">{{this.dataRetorno}}</td>
-                        <td class="col">{{this.valorTotal}}</td>
-                        <td class="col text-center">
+                        <td>{{this.origem}}</td>
+                        <td>{{this.destino}}</td>
+                        <td>{{this.dataPartida}}</td>
+                        <td>{{this.dataRetorno}}</td>
+                        <td>{{this.veiculoDescricao}}</td>
+                        <td>{{this.valorTotal}}</td>
+                        <td>
                             <span class="actions">
                                 <a href="/viagem/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
                                         id="lapis"></i></a>
                                 <form action="/viagem/remover" method="POST">
                                     <input type="hidden" name="id" value={{this.id}}>
-                                    <button type="submit" data-toggle="tooltip" data-placement="top"
-                                        data-title="Excluir">
+                                    <button type="button" data-placement="top" data-toggle="modal" id="botaoExcluir"
+                                    data-target="#modal" data-title="Excluir" onClick="atualizarForm({{this.id}})">
                                         <i class="bi bi-trash3-fill" id="lixeira"></i>
                                     </button>
                                 </form>
@@ -59,6 +61,32 @@
         </div>
     </div>
 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Confirmação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Deseja mesmo excluir esta viagem?<br>
+                Esta alteração irá apagar todas as viagens deste cliente.
+            </div>
+            <div class="modal-footer">
+                <form action="" method="POST" id="formExcluir">
+                    <input type="hidden" name="id" value="" id="idItem">
+
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!--Js do datatable com exportações-->
@@ -88,9 +116,13 @@
             ],
             columnDefs: [
                 {
-                    targets: 4,
+                    targets: 3,
                     render: $.fn.dataTable.render.number('.', ',', 2, ''),
                     className: "dt-right",
+                },
+                {
+                    targets: 4,
+                    className: "dt-center",
                 }
             ],
             order: [[0, 'desc']],
@@ -98,4 +130,9 @@
         });
 
     });
+
+    function atualizarForm(id = "") {
+        document.getElementById("formExcluir").action = "/viagem/remover"
+        document.getElementById("idItem").value = id
+    }
 </script>
