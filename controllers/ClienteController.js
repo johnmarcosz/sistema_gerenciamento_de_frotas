@@ -32,7 +32,7 @@ module.exports = class ClienteController {
             })
             .catch((err) => console.log(err))
     }
-    //metodo para chamar roda de cadastro cliente
+    //metodo para chamar rota de cadastro cliente
     static criarCliente(req, res) {
         res.render('cliente/criar')
     }

@@ -145,6 +145,7 @@ module.exports = class UsuarioController {
         }
         // cria sessão do usuário
         req.session.userid = usuario.id
+        req.session.username = usuario.username
         req.session.save(() => {
         res.redirect('/')
         })

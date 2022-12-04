@@ -1,6 +1,7 @@
 // Comandos para iniciar o projeto e instalar os pacotes
 // npm init -y
-// npm install express express-handlebars sequelize mysql2 bcryptjs connect-flash cookie-parser cookie-session express-flash express-session session-file-store nodemon
+// 
+
 
 const express = require("express");
 const expressHandlebars = require("express-handlebars");
@@ -62,7 +63,9 @@ const verificaSessao = require("./models/sessao").verificaSessao;
 //Rota inicial da aplicação
 
 aplicacao.get('/',verificaSessao, function (req, res) {
-res.render('home')
+  
+//console.log(verificaSessao)
+  res.render('home')
 })
 aplicacao.get('/login', function (req, res) {
   res.render('login',{layout:false})
