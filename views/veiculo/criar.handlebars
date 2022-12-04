@@ -19,46 +19,46 @@
                 
                     <div class="mb-3">
                         <label for="descricao" class="form-label">Descrição</label>
-                        <input type="text" class="form-control" name="descricao" placeholder="Descrição do veículo">
+                        <input type="text" class="form-control" name="descricao" placeholder="Descrição do veículo" minlength="2" maxlength="150" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="placa" class="form-label">Placa</label>
-                        <input type="text" class="form-control" name="placa" placeholder="Placa do veículo">
+                        <input type="text" class="form-control" name="placa" placeholder="Placa do veículo" minlength="7" maxlength="7" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="tipo" class="form-label">Tipo</label>
-                        <input type="text" class="form-control" name="tipo" placeholder="Tipo do veículo">
+                        <label for="tipo" class="form-label">Tipo do veículo</label>
+                        <input type="text" class="form-control" name="tipo" placeholder="Carro, Van, Ônibus..." minlength="2" maxlength="80" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="ano" class="form-label">Ano</label>
-                        <input type="text" class="form-control" name="ano" placeholder="Ano do veículo">
+                        <input type="text" class="form-control" name="ano" placeholder="Ano do veículo" minlength="2" maxlength="4">
                     </div>
 
                     <div class="mb-3">
                         <label for="numeroRenavam" class="form-label">Renavam</label>
                         <input type="text" step="0.01" class="form-control" name="numeroRenavam"
-                            placeholder="Número do Renavam" SIZE=11 MAXLENGTH=11>
+                            placeholder="Número do Renavam" minlength="11" maxlength="11" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="validadeCsv" class="form-label">Validade do CSV</label>
                         <input type="date" step="0.01" class="form-control" name="validadeCsv"
-                            placeholder="Validade do CSV">
+                            placeholder="Validade do CSV" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="validadeLit" class="form-label">Validade do LIT</label>
                         <input type="date" step="0.01" class="form-control" name="validadeLit"
-                            placeholder="Validade do LIT">
+                            placeholder="Validade do LIT" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="capacidadePassageiros" class="form-label">Capacidade</label>
                         <input type="number" step="0.01" class="form-control" name="capacidadePassageiros"
-                            placeholder="Capacidade de passageiros">
+                            placeholder="Capacidade de passageiros" min="1">
                     </div>
 
                     <center>

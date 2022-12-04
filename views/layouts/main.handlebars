@@ -13,7 +13,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  
+
   <!-- CSS DataTables-->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" />
@@ -29,13 +29,14 @@
 
 <body class="h-100">
 
-  <div class="h-100 d-flex">
+  <div class="d-flex h-100">
+  
     <div class="h-100 d-flex flex-column flex-shrink-0 p-4 bg-light" style="width: 19%;">
 
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <span class="fs-4">Gerenciamento de Frotas</span>
       </a>
-      
+
       <a class="nav-link active" href="/logout"><i class="bi bi-box-arrow-right"></i>
       Sair</a>
 
@@ -85,7 +86,7 @@
         </li>
 
         <li>
-          <a href="/relatorios" class="nav-link link-dark">
+          <a href="/usuario" class="nav-link link-dark">
             <i class="bi bi-people"></i> Usuários
           </a>
         </li>
@@ -110,62 +111,13 @@
         </ul>
 
       </div>
+
+
     </div>
-
-    {{!-- <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #566787;">
-
-      <div class="container">
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-
-          <ul class="navbar-nav h6">
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/"><i class="bi bi-house-door"></i> Início</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" href="/veiculo"><i class="bi bi-truck-front"></i> Veículos</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" href="/motorista"><i class="bi bi-people"></i> Motoristas</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" href="/viagem"><i class="bi bi-calendar2-week"></i> Viagens</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/relatorios"><i class="bi bi-clipboard-data"></i> Relatórios</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" href="/usuario"><i class="bi bi-person"></i> Usuários</a>
-            </li>
-
-          </ul>
-
-          <ul class="navbar-nav ms-auto h6">
-            <li class="nav-item">
-              <a class="nav-link active" href="#"><i class="bi bi-box-arrow-right"></i> Sair</a>
-            </li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </nav> --}}
-
-    <div class="container m-3 pt-4 pb-4 bg-light rounded">
+    
+    <div class="w-100 m-3 pt-4 pb-4 bg-light rounded">
       {{{ body }}}
     </div>
-
   </div>
 
 </body>

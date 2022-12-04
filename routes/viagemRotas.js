@@ -8,6 +8,7 @@ rota.post("/criarPost", ViagemController.criarViagemPost);
 rota.get("/editar/:id", ViagemController.editarViagem);
 rota.post("/editarPost", ViagemController.editarViagemPost);
 rota.post("/remover", ViagemController.removerViagem);
-
+rota.get("/buscarVeiculo", ViagemController.buscarVeiculo);
+rota.get("/buscarMotorista", ViagemController.buscarMotorista);
 
 module.exports = rota;
