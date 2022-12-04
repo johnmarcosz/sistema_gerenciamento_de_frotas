@@ -22,16 +22,18 @@ const Cliente = bancoDeDados.define("Cliente", {
     cpfCnpj:{
         type: DataTypes.STRING(14),
         allowNull: false
-        
     },
+    
     telefone:{
         type: DataTypes.STRING(12), 
         allowNull: false
     },
+    
     email: {
         type: DataTypes.STRING,
         allowNull: true,
     },
+
     usuarioCriacao:{
         type: DataTypes.STRING(20),
         allowNull: false
