@@ -1,10 +1,7 @@
 <title>Veículos | Consulta</title>
-
 <div class="container-xl">
-
     <div class="table">
         <div class="table-wrapper">
-
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
@@ -18,33 +15,29 @@
                     </div>
                 </div>
             </div>
-
             <hr class="dropdown-divider">
-
             <table id="tabela" class="table table-striped pb-3" style="width:100%">
 
                 <thead>
                     <tr class="text-center align-middle">
+                        <th class="text-left">Descrição</th>
                         <th class="text-center">Placa</th>
+                        <th class="text-center">Ano</th>
                         <th class="text-center col-2">Tipo</th>
-                        <th class="text-center">Renavam</th>
                         <th class="text-center">Validade CSV</th>
                         <th class="text-center">Validade LIT</th>
-                        <th class="text-center">Capacidade de Passageiros</th>
-                        <th class="text-center">Ano do veículo</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each resultado}}
                     <tr>
+                        <td class="text-left">{{this.descricao}}</td>
                         <td class="text-center">{{this.placa}}</td>
+                        <td class="text-center">{{this.ano}}</td>
                         <td class="text-center">{{this.tipo}}</td>
-                        <td class="text-center">{{this.numeroRenavam}}</td>
                         <td class="text-center">{{this.validadeCsv}}</td>
                         <td class="text-center">{{this.validadeLit}}</td>
-                        <td class="text-center">{{this.capacidadePassageiros}}</td>
-                        <td class="text-center">{{this.ano}}</td>
                         <td>
                             <span class="actions">
                                 <a href="/veiculo/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
@@ -61,12 +54,9 @@
                     </tr>
                     {{/each}}
                 </tbody>
-
             </table>
-
         </div>
     </div>
-
 </div>
 
 <!--Js do datatable com exportações-->
@@ -110,4 +100,4 @@
         });
         $('.dataTables_length').addClass('bs-select');
     });
-</script> 
+</script>

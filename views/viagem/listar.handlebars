@@ -21,25 +21,23 @@
 
                 <thead>
                     <tr>
-                        <th>Origem</th>
-                        <th>Destino</th>
-                        <th>Data de partida</th>
-                        <th>Data de retorno</th>
-                        <th>Veículo</th>
-                        <th>Custo</th>
-                        <th>Ações</th>
+                        <th class="col">Origem</th>
+                        <th class="col">Destino</th>
+                        <th class="col text-center">Data de partida</th>
+                        <th class="col text-center">Data de retorno</th>
+                        <th class="col">Custo</th>
+                        <th class="col text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each resultado}}
                     <tr>
-                        <td>{{this.origem}}</td>
-                        <td>{{this.destino}}</td>
-                        <td>{{this.dataPartida}}</td>
-                        <td>{{this.dataRetorno}}</td>
-                        <td>{{this.veiculoPlaca}} {{this.veiculoDescricao}}</td>
-                        <td>{{this.valorTotal}}</td>
-                        <td>
+                        <td class="col">{{this.origem}}</td>
+                        <td class="col">{{this.destino}}</td>
+                        <td class="col text-center">{{this.dataPartida}}</td>
+                        <td class="col text-center">{{this.dataRetorno}}</td>
+                        <td class="col">{{this.valorTotal}}</td>
+                        <td class="col text-center">
                             <span class="actions">
                                 <a href="/viagem/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
                                         id="lapis"></i></a>
@@ -90,13 +88,9 @@
             ],
             columnDefs: [
                 {
-                    targets: 3,
+                    targets: 4,
                     render: $.fn.dataTable.render.number('.', ',', 2, ''),
                     className: "dt-right",
-                },
-                {
-                    targets: 4,
-                    className: "dt-center",
                 }
             ],
             order: [[0, 'desc']],

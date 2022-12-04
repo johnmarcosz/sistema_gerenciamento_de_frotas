@@ -13,9 +13,15 @@ const aplicacao = express();
 
 const conexaoBD = require("./banco_de_dados/conexaoBD");
 
-aplicacao.engine("handlebars", expressHandlebars.engine());
+aplicacao.engine("handlebars", expressHandlebars.engine({
+  defaultLayout: 'main',
+  runtimeOptions: {
+      allowProtoPropertiesByDefault: true,
+      allowProtoMethodsByDefault: true,
+  },
+}));
 aplicacao.set("view engine", "handlebars");
-
+ 
 aplicacao.use(
   express.urlencoded({
     extended: true,
@@ -46,14 +52,14 @@ aplicacao.use(
   )
   // flash messages
   aplicacao.use(flash());
-  
+
 // Importa os Models para a criação das tabelas
 const Usuario = require("./models/Usuario");
-const Motorista = require("./models/Motorista"); 
+const Motorista = require("./models/Motorista");
 //const Pessoa = require("./models/Pessoa");
 const Viagem = require("./models/Viagem");
 const Veiculo = require("./models/Veiculo");
-//const Viagem_Veiculos = require("./models/Viagem_Veiculos");
+const Viagem_Motoristas = require("./models/Viagem_Motoristas");
 const Orcamento = require("./models/Orcamento");
 const Cliente = require("./models/Cliente");
 
@@ -67,13 +73,38 @@ res.render('home')
 aplicacao.get('/login', function (req, res) {
   res.render('login',{layout:false})
   })
-  
+
 //Logout
 aplicacao.get('/logout', function (req, res) {
   req.session.destroy()
   res.redirect('/login')
   })
 
+
+// ACESSE localhost:3000/usuarioTemp PARA CRIAR UM USUÁRIO PADRÃO TEMPORARIAMENTE
+aplicacao.get('/usuarioTemp', function(req, res){
+
+  const Usuario = require('./models/Usuario')
+  const bcrypt = require('bcryptjs')
+  const { Op } = require('sequelize')
+
+  const salt = bcrypt.genSaltSync(10)
+  const hashSenha = bcrypt.hashSync("admin", salt)
+
+  const usuario = {
+      //Cria o hash
+      username: 'admin',
+      senha: hashSenha, //Usa o hash para cadastrar no bd
+      nome: 'Admin temporário'
+  }
+
+  console.log(usuario)
+  Usuario.create(usuario)
+      .then(() => {
+          res.redirect('/')
+      })
+      .catch((err) => console.log(err))
+})
 
 
 
@@ -102,4 +133,4 @@ conexaoBD
     console.log("Conectado ao banco!")
     aplicacao.listen(3000);
   })
-  .catch((err) => console.log(err)); 
+  .catch((err) => console.log(err));

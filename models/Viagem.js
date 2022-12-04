@@ -2,8 +2,8 @@ const { DataTypes } = require("sequelize")
 
 const bancoDeDados = require("../banco_de_dados/conexaoBD")
 
-const Usuario = require("../models/Usuario")
 const Cliente = require("../models/Cliente")
+const Veiculo = require("../models/Veiculo")
 
 const Viagem = bancoDeDados.define("Viagem", {
 
@@ -40,11 +40,10 @@ const Viagem = bancoDeDados.define("Viagem", {
 }, {
     freezeTableName: true // o sequelize coloca um 's' automático no final do nome das tables, esse comando impede isso pra não ficar "Viagems"
 })
- 
-Viagem.belongsTo(Usuario)
-Usuario.hasMany(Viagem)
 
 Viagem.belongsTo(Cliente)
 Cliente.hasMany(Viagem)
+
+Viagem.belongsTo(Veiculo, {as: 'Veiculo'})
 
 module.exports = Viagem

@@ -1,5 +1,5 @@
 const Usuario = require('../models/Usuario')
-const bcrypt = require('bcryptjs') 
+const bcrypt = require('bcryptjs')
 
 const { Op } = require('sequelize')
 
@@ -54,10 +54,8 @@ module.exports = class UsuarioController {
             senha: hashSenha, //Usa o hash para cadastrar no bd            email: req.body.email,
             nome: req.body.nome,
             sobrenome: req.body.sobrenome,
-            email : req.body.email      
-
+            email : req.body.email
         }
-       
 
         console.log(usuario)
         Usuario.create(usuario)
@@ -98,7 +96,7 @@ module.exports = class UsuarioController {
             senha: hashSenha,
             email: req.body.email,
             nome: req.body.nome,
-            sobrenome: req.body.sobrenome           
+            sobrenome: req.body.sobrenome
 
         }
 
