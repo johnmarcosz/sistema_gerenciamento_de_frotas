@@ -3,7 +3,7 @@ const { DataTypes } = require("sequelize")
 const bancoDeDados = require("../banco_de_dados/conexaoBD")
 
 const Cliente = require("../models/Cliente")
-const Motorista = require("../models/Motorista")
+const Veiculo = require("../models/Veiculo")
 
 const Viagem = bancoDeDados.define("Viagem", {
 
@@ -44,6 +44,6 @@ const Viagem = bancoDeDados.define("Viagem", {
 Viagem.belongsTo(Cliente)
 Cliente.hasMany(Viagem)
 
-Viagem.belongsTo(Motorista, {as: 'Motorista'})
+Viagem.belongsTo(Veiculo, {as: 'Veiculo'})
 
 module.exports = Viagem

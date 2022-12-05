@@ -40,11 +40,15 @@
                         <td class="col text-center">
                             <span class="actions">
                                 <a href="/viagem/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
-                                        id="lapis"></i></a>
+                                        id="lapis"></i>
+                                </a>
+                                </a>
                                 <form action="/viagem/remover" method="POST">
                                     <input type="hidden" name="id" value={{this.id}}>
                                     <button type="button" data-placement="top" data-toggle="modal" id="botaoExcluir"
                                     data-target="#modal" data-title="Excluir" onClick="atualizarForm({{this.id}})">
+                                        <i class="bi bi-trash3-fill" id="lixeira"></i>
+                                    </button>
                                 </form>
                             </span>
                         </td>
@@ -112,7 +116,7 @@
             ],
             columnDefs: [
                 {
-                    targets: 4,
+                    targets: 5,
                     render: $.fn.dataTable.render.number('.', ',', 2, ''),
                     className: "dt-right",
                 }

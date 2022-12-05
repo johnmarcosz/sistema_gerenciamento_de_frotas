@@ -1,10 +1,11 @@
-const Viagem = require('../models/Viagem')
-const Veiculo = require('../models/Veiculo')
 
 const { Op } = require('sequelize')
-const banco_de_dados = require("../banco_de_dados/conexaoBD");
-const Viagem_Motoristas = require('../models/Viagem_Motoristas');
 
+const banco_de_dados = require("../banco_de_dados/conexaoBD");
+
+const Viagem_Motoristas = require('../models/Viagem_Motoristas');
+const Viagem = require('../models/Viagem')
+const Veiculo = require('../models/Veiculo')
 
 module.exports = class ViagemController {
 
@@ -140,13 +141,15 @@ module.exports = class ViagemController {
                 var veiculo = await Veiculo.findOne({
                     where: {
                        id: viagem.VeiculoId
-                    }
+                    },
+                    raw: true
                 })
 
                 var motoristas = await Viagem_Motoristas.findAll({
                     where: {
                       ViagemId: viagem.id
-                    }
+                    },
+                    raw: true
                 })
                 
                 res.render('viagem/editar', { viagem : viagem, veiculo : veiculo, motoristas : motoristas })
