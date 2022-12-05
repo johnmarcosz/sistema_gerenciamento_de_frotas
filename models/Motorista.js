@@ -25,7 +25,7 @@ const Motorista = bancoDeDados.define("Motorista", {
         allowNull: true
     },
     categoriaCNH:{
-        type: DataTypes.STRING(1),
+        type: DataTypes.STRING(2),
         allowNull: true
     },
     usuarioCriacao: {
