@@ -16,6 +16,10 @@ const Motorista = bancoDeDados.define("Motorista", {
         type: DataTypes.STRING(11),
         allowNull: true
     },
+    dataAdmissao: {
+        type: DataTypes.DATE,
+        allowNull: true
+    },
     validadeCNH:{
         type: DataTypes.DATE,
         allowNull: true

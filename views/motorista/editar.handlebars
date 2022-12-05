@@ -1,43 +1,61 @@
-<div class="container-xl">
-    <div class="table-responsive">
-        <div class="table-wrapper" style="max-width: 600px; margin: auto;">
-            <div class="table-title">
-                <div class="row">
-                    <div class="col-mb-3">
-                        <h4>Editar Motorista</h4>
-                    </div>
+<title>Editar Motorista</title>
+<div class="container-x1 px-4 h-100">
+
+    <form action="/motorista/editarPost" method="POST">
+        <input type="hidden" name="id" value={{motorista.id}}>
+
+        <div class="col-mb-3">
+            <h4>Editar Motorista</h4>
+        </div>
+
+        <hr>
+
+        <div class="form-row row">
+            <div class="form-group col mb-3">
+                <label for="nome" class="form-label">Nome Motorista</label>
+                <input type="text" class="form-control" name="nome" placeholder="Nome do Motorista"
+                    value={{motorista.nome}} required>
+            </div>
+            <div class="form-group col mb-3">
+                <label for="cpf" class="form-label">CPF do Motorista</label>
+                <input type="text" class="form-control" name="cpf" placeholder="CPF do Motorista" SIZE=11 MAXLENGTH=11
+                    value={{motorista.cpf}} required>
+            </div>
+            <div class="form-group col mb-3">
+                <div class="mb-3">
+                    <label for="dataAdmissao" class="form-label">Data de Admissão</label>
+                    <input type="date" class="form-control" name="dataAdmissao" value={{motorista.dataAdmissao}}>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row row">
+            <div class="form-group col mb-3">
+                <div class="mb-3">
+                    <label for="categoriaCNH" class="form-label">Cat. CNH</label><br>
+                    <input class="form-check-input" type="radio" id="D" name="categoriaCNH" value="D" required>
+                    <label class="form-check-label m-6">Cat. D</label>
+                    <input class="form-check-input" type="radio" id="E" name="categoriaCNH" value="E">
+                    <label class="form-check-label m-6">Cat. E</label>
+                </div>
+            </div>
+            <div class="form-group col mb-3">
+                <label for="numeroCNH" class="form-label">Nº CNH</label>
+                <input type="text" step="0.01" class="form-control" name="numeroCNH" placeholder="apenas números"
+                    SIZE=11 MAXLENGTH=11 value={{motorista.numeroCNH}}>
+            </div>
+            <div class="form-group col mb-3">
+                <div class="mb-3">
+                    <label for="validadeCNH" class="form-label">Vencimento da CNH</label>
+                    <input type="date" class="form-control" name="validadeCNH" value={{motorista.validadeCNH}}>
                 </div>
             </div>
 
-            <form action="/motorista/editarPost" method="POST">
-                <input type="hidden" name="id" value={{motorista.id}}>
-                <div class="form-control">
-                <div class="mb-3">
-                    <label for="nome" class="form-label">Nome Motorista</label>
-                    <input type="text" class="form-control" name="nome" placeholder="Nome do Motorista" value="{{motorista.nome}}">
-                </div>
-                <div class="mb-3">
-                    <label for="cpf" class="form-label">CPF do Motorista</label>
-                    <input type="text" class="form-control" name="cpf" placeholder="CPF do Motorista" SIZE=11 MAXLENGTH=11 value="{{motorista.cpf}}">
-                </div>
-                <div class="mb-3">
-                    <label for="numeroCNH" class="form-label">CNH do Motorista</label>
-                    <input type="text" step="0.01" class="form-control" name="numeroCNH" placeholder="CNH do Motorista" SIZE=11 MAXLENGTH=11 value="{{motorista.numeroCNH}}">
-                </div>
-                 <div class="mb-3">
-                    <label for="validadeCNH" class="form-label">Validade da CNH</label>
-                    <input type="date" step="0.01" class="form-control" name="validadeCNH" placeholder="Validade da CNH" value="{{motorista.validadeCNH}}">
-                </div>
-                 <div class="mb-3">
-                    <label for="categoriaCNH" class="form-label">Categoria da CNH</label>
-                    <input type="text" step="0.01" class="form-control" name="categoriaCNH" placeholder="Categoria da CNH" SIZE=2 MAXLENGTH=2 value="{{motorista.categoriaCNH}}">
-                </div>
-                <center>
+            <center class="mt-3">
                 <button type="submit" class="btn btn-success"><i class="bi bi-check-circle-fill"></i> Salvar</button>
                 <a href="/motorista" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
-                </center>
-            </div>
-            </form>
+            </center>
+
         </div>
-    </div>
+    </form>
 </div>

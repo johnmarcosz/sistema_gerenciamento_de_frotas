@@ -1,0 +1,251 @@
+Conectado com o banco de dados.
+Executing (default): SELECT 1+1 AS result
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Usuarios' AND TABLE_SCHEMA = 'gerenciamento_de_frotas_bd'
+Executing (default): SHOW INDEX FROM `Usuarios`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Motorista' AND TABLE_SCHEMA = 'gerenciamento_de_frotas_bd'
+Executing (default): SHOW INDEX FROM `Motorista`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Clientes' AND TABLE_SCHEMA = 'gerenciamento_de_frotas_bd'
+Executing (default): SHOW INDEX FROM `Clientes`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Viagem' AND TABLE_SCHEMA = 'gerenciamento_de_frotas_bd'
+Executing (default): SHOW INDEX FROM `Viagem`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Veiculos' AND TABLE_SCHEMA = 'gerenciamento_de_frotas_bd'
+Executing (default): SHOW INDEX FROM `Veiculos`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Orcamentos' AND TABLE_SCHEMA = 'gerenciamento_de_frotas_bd'
+Executing (default): SHOW INDEX FROM `Orcamentos`
+Conectado ao banco!
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'admin' LIMIT 1;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `nome`, `cpf`, `numeroCNH`, `dataAdmissao`, `validadeCNH`, `categoriaCNH`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Motorista` AS `Motorista` ORDER BY `Motorista`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `origem`, `destino`, `dataPartida`, `dataRetorno`, `valorTotal`, `usuarioCriacao`, `createdAt`, `updatedAt`, `ClienteId`, `MotoristaId` FROM `Viagem` AS `Viagem` ORDER BY `Viagem`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` WHERE `Orcamento`.`id` = '13';
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'douglas' LIMIT 1;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): INSERT INTO `Veiculos` (`id`,`placa`,`descricao`,`tipo`,`numeroRenavam`,`validadeInspecao`,`validadeApolice`,`capacidadePassageiros`,`ano`,`usuarioCriacao`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?,?,?);
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+{
+  tipo: 'J',
+  nomeRazaoSocial: 'Cliente LTDA',
+  nomeFantasia: 'Cliente',
+  cpfCnpj: '19823789173891',
+  telefone: '42999991234',
+  email: 'cliente@cliente.com'
+}
+Executing (default): INSERT INTO `Clientes` (`id`,`tipo`,`nomeRazaoSocial`,`nomeFantasia`,`cpfCnpj`,`telefone`,`email`,`usuarioCriacao`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `nome`, `cpf`, `numeroCNH`, `dataAdmissao`, `validadeCNH`, `categoriaCNH`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Motorista` AS `Motorista` ORDER BY `Motorista`.`createdAt` DESC LIMIT 1000;
+{
+  nome: 'Toretto',
+  cpf: '91287389173',
+  dataAdmissao: '2022-12-08',
+  categoriaCNH: 'E',
+  numeroCNH: '12313131313',
+  validadeCNH: '2022-12-15'
+}
+Executing (default): INSERT INTO `Motorista` (`id`,`nome`,`cpf`,`numeroCNH`,`dataAdmissao`,`validadeCNH`,`categoriaCNH`,`usuarioCriacao`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);
+Executing (default): SELECT `id`, `nome`, `cpf`, `numeroCNH`, `dataAdmissao`, `validadeCNH`, `categoriaCNH`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Motorista` AS `Motorista` ORDER BY `Motorista`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `origem`, `destino`, `dataPartida`, `dataRetorno`, `valorTotal`, `usuarioCriacao`, `createdAt`, `updatedAt`, `ClienteId`, `MotoristaId` FROM `Viagem` AS `Viagem` ORDER BY `Viagem`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT id, descricao, placa FROM veiculos
+        WHERE descricao LIKE '%1%'
+        OR placa LIKE '%1%'
+        LIMIT 10
+Executing (default): SELECT id, nome, cpf FROM motorista
+        WHERE nome LIKE '%t%'
+        OR cpf LIKE '%t%'
+        LIMIT 10
+{
+  valorTotal: '1000',
+  origem: 'São Mateus do Sul',
+  destino: 'Canoinhas',
+  dataPartida: '2022-12-05T17:01',
+  dataRetorno: '2022-12-09T17:01',
+  usuarioCriacao: 'john'
+}
+Executing (default): INSERT INTO `Viagem` (`id`,`origem`,`destino`,`dataPartida`,`dataRetorno`,`valorTotal`,`usuarioCriacao`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
+Executing (default): SELECT `id`, `origem`, `destino`, `dataPartida`, `dataRetorno`, `valorTotal`, `usuarioCriacao`, `createdAt`, `updatedAt`, `ClienteId`, `MotoristaId` FROM `Viagem` AS `Viagem` ORDER BY `Viagem`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` WHERE `Orcamento`.`id` = '13';
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `nome`, `cpf`, `numeroCNH`, `dataAdmissao`, `validadeCNH`, `categoriaCNH`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Motorista` AS `Motorista` ORDER BY `Motorista`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+{
+  distanciaKm: '1500',
+  precoCombustivel: '6.50',
+  consumo: '2.5',
+  lucroPercentual: '75',
+  custosExtras: '150',
+  decrementoVeiculo: '20'
+}
+{
+  distanciaKm: '1500',
+  precoCombustivel: '6.50',
+  consumo: '2.50',
+  lucroPercentual: '77',
+  custosExtras: '150',
+  decrementoVeiculo: '20'
+}
+{
+  distanciaKm: '1500',
+  consumo: '2.5',
+  precoCombustivel: '6.5',
+  decrementoVeiculo: '20',
+  lucroPercentual: '77',
+  custosExtras: '150',
+  valor: '8549.1',
+  valorKm: '5.6994',
+  lucroValor: '3719.1',
+  custoFinal: '4830'
+}
+Executing (default): INSERT INTO `Orcamentos` (`id`,`valor`,`valorKm`,`distanciaKm`,`consumo`,`precoCombustivel`,`decrementoVeiculo`,`lucroValor`,`lucroPercentual`,`custosExtras`,`custoFinal`,`usuarioCriacao`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?,?,?,?,?);
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` WHERE `Orcamento`.`id` = '14';
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'askjdha' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'douglas' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'douglas' LIMIT 1;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` WHERE `Cliente`.`id` = '1';
+Executing (default): UPDATE `Clientes` SET `tipo`=?,`nomeRazaoSocial`=?,`nomeFantasia`=?,`cpfCnpj`=?,`telefone`=?,`email`=?,`usuarioCriacao`=?,`updatedAt`=? WHERE `id` = ?
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): DELETE FROM `Clientes` WHERE `id` = '1'
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `origem`, `destino`, `dataPartida`, `dataRetorno`, `valorTotal`, `usuarioCriacao`, `createdAt`, `updatedAt`, `ClienteId`, `MotoristaId` FROM `Viagem` AS `Viagem` ORDER BY `Viagem`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` WHERE `Orcamento`.`id` = '14';
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+{
+  distanciaKm: '100',
+  precoCombustivel: '6.69',
+  consumo: '2.5',
+  lucroPercentual: '75',
+  custosExtras: '120',
+  decrementoVeiculo: '20'
+}
+{
+  distanciaKm: '100',
+  precoCombustivel: '6.59',
+  consumo: '2.5',
+  lucroPercentual: '50',
+  custosExtras: '120',
+  decrementoVeiculo: '20'
+}
+{
+  distanciaKm: '100',
+  consumo: '2.5',
+  precoCombustivel: '6.59',
+  decrementoVeiculo: '20',
+  lucroPercentual: '50',
+  custosExtras: '120',
+  valor: '654.48',
+  valorKm: '6.5448',
+  lucroValor: '218.16000000000003',
+  custoFinal: '436.32000000000005'
+}
+Executing (default): INSERT INTO `Orcamentos` (`id`,`valor`,`valorKm`,`distanciaKm`,`consumo`,`precoCombustivel`,`decrementoVeiculo`,`lucroValor`,`lucroPercentual`,`custosExtras`,`custoFinal`,`usuarioCriacao`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?,?,?,?,?);
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` WHERE `Orcamento`.`id` = '15';
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): DELETE FROM `Orcamentos` WHERE `id` = '15'
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `origem`, `destino`, `dataPartida`, `dataRetorno`, `valorTotal`, `usuarioCriacao`, `createdAt`, `updatedAt`, `ClienteId`, `MotoristaId` FROM `Viagem` AS `Viagem` ORDER BY `Viagem`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `nome`, `cpf`, `numeroCNH`, `dataAdmissao`, `validadeCNH`, `categoriaCNH`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Motorista` AS `Motorista` ORDER BY `Motorista`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+{
+  tipo: 'F',
+  nomeRazaoSocial: 'Joaozinho Modafoker',
+  nomeFantasia: '',
+  cpfCnpj: '12890372189378',
+  telefone: '123131231232',
+  email: 'joaozinho@modafoker.com'
+}
+Executing (default): INSERT INTO `Clientes` (`id`,`tipo`,`nomeRazaoSocial`,`nomeFantasia`,`cpfCnpj`,`telefone`,`email`,`usuarioCriacao`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` WHERE `Veiculo`.`id` = '1';
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+{
+  tipo: 'F',
+  nomeRazaoSocial: 'asdsad',
+  nomeFantasia: '',
+  cpfCnpj: 'asdad',
+  telefone: 'asdasd',
+  email: ''
+}
+Executing (default): INSERT INTO `Clientes` (`id`,`tipo`,`nomeRazaoSocial`,`nomeFantasia`,`cpfCnpj`,`telefone`,`email`,`usuarioCriacao`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): DELETE FROM `Clientes` WHERE `id` = '3'
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `nome`, `cpf`, `numeroCNH`, `dataAdmissao`, `validadeCNH`, `categoriaCNH`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Motorista` AS `Motorista` ORDER BY `Motorista`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `origem`, `destino`, `dataPartida`, `dataRetorno`, `valorTotal`, `usuarioCriacao`, `createdAt`, `updatedAt`, `ClienteId`, `MotoristaId` FROM `Viagem` AS `Viagem` ORDER BY `Viagem`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` WHERE `Orcamento`.`id` = '14';
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'douglas' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'douglas' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'admin' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'douglas' LIMIT 1;
+{
+  username: 'admin',
+  senha: '$2a$10$zyBSiJodf/y3t7lQmQK6MeX8R46E/Z3AD8ck7w4MqxNy1vgRRAI9y',
+  nome: 'Admin temporário'
+}
+Executing (default): INSERT INTO `Usuarios` (`id`,`username`,`senha`,`nome`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'admin' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'admin' LIMIT 1;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `nome`, `cpf`, `numeroCNH`, `dataAdmissao`, `validadeCNH`, `categoriaCNH`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Motorista` AS `Motorista` ORDER BY `Motorista`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `tipo`, `nomeRazaoSocial`, `nomeFantasia`, `cpfCnpj`, `telefone`, `email`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Clientes` AS `Cliente` ORDER BY `Cliente`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `origem`, `destino`, `dataPartida`, `dataRetorno`, `valorTotal`, `usuarioCriacao`, `createdAt`, `updatedAt`, `ClienteId`, `MotoristaId` FROM `Viagem` AS `Viagem` ORDER BY `Viagem`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'douglas' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'admin' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'admin' LIMIT 1;
+{
+  username: 'admin',
+  senha: '$2a$10$IgOBPbZkRKoL30Go.SLlt.8dZVMPlIE.py6VkGZvkeh9xKrlyUJ5m',
+  nome: 'Admin temporário'
+}
+Executing (default): INSERT INTO `Usuarios` (`id`,`username`,`senha`,`nome`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'admin' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'douglas' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `senha`, `email`, `nome`, `sobrenome`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Usuarios` AS `Usuario` WHERE `Usuario`.`username` = 'admin' LIMIT 1;
+{
+  username: 'admin',
+  senha: '$2a$10$mEWD6FBj9KXe8n3U39OSOeYWGHIiGHuB7L7bbIH66uP8BRkTZgbUC',
+  nome: 'Admin temporário'
+}
+Executing (default): INSERT INTO `Usuarios` (`id`,`username`,`senha`,`nome`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` WHERE `Orcamento`.`id` = '14';
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `nome`, `cpf`, `numeroCNH`, `dataAdmissao`, `validadeCNH`, `categoriaCNH`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Motorista` AS `Motorista` ORDER BY `Motorista`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `valor`, `valorKm`, `distanciaKm`, `consumo`, `precoCombustivel`, `decrementoVeiculo`, `lucroValor`, `lucroPercentual`, `custosExtras`, `custoFinal`, `usuarioCriacao`, `ultimoAcesso`, `createdAt`, `updatedAt` FROM `Orcamentos` AS `Orcamento` ORDER BY `Orcamento`.`createdAt` DESC LIMIT 1000;
+Executing (default): SELECT `id`, `placa`, `descricao`, `tipo`, `numeroRenavam`, `validadeInspecao`, `validadeApolice`, `capacidadePassageiros`, `ano`, `usuarioCriacao`, `createdAt`, `updatedAt` FROM `Veiculos` AS `Veiculo` ORDER BY `Veiculo`.`createdAt` DESC LIMIT 1000;

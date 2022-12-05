@@ -21,11 +21,13 @@
                 <thead>
                     <tr class="text-center align-middle">
                         <th class="text-left">Descrição</th>
+                        <th class="text-center col-2">Tipo</th>
                         <th class="text-center">Placa</th>
                         <th class="text-center">Ano</th>
-                        <th class="text-center col-2">Tipo</th>
-                        <th class="text-center">Validade CSV</th>
-                        <th class="text-center">Validade LIT</th>
+                        <th class="text-center col-2">Capacidade</th>
+                        <th class="text-center col-2">RENAVAM</th>
+                        <th class="text-center">Validade Inspeção</th>
+                        <th class="text-center">Validade Apólice</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -33,22 +35,21 @@
                     {{#each resultado}}
                     <tr>
                         <td class="text-left">{{this.descricao}}</td>
+                        <td class="text-center">{{this.tipo}}</td>
                         <td class="text-center">{{this.placa}}</td>
                         <td class="text-center">{{this.ano}}</td>
-                        <td class="text-center">{{this.tipo}}</td>
-                        <td class="text-center">{{this.validadeCsv}}</td>
-                        <td class="text-center">{{this.validadeLit}}</td>
+                        <td class="text-center">{{this.capacidadePassageiros}}</td>
+                        <td class="text-center">{{this.numeroRenavam}}</td>
+                        <td class="text-center">{{this.validadeInspecao}}</td>
+                        <td class="text-center">{{this.validadeApolice}}</td>
                         <td>
                             <span class="actions">
                                 <a href="/veiculo/editar/{{this.id}}" data-title="Editar"><i class="bi bi-pencil-fill"
                                         id="lapis"></i></a>
-                                <form action="/veiculo/remover" method="POST">
-                                    <input type="hidden" name="id" value={{this.id}}>
-                                    <button type="submit" data-toggle="tooltip" data-placement="top"
-                                        data-title="Excluir">
-                                        <i class="bi bi-trash3-fill" id="lixeira"></i>
-                                    </button>
-                                </form>
+                                <button type="button" data-placement="top" data-toggle="modal" id="botaoExcluir"
+                                    data-target="#modal" data-title="Excluir" onClick="atualizarForm({{this.id}})">
+                                    <i class="bi bi-trash3-fill" id="lixeira"></i>
+                                </button>
                             </span>
                         </td>
                     </tr>
@@ -58,6 +59,33 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Confirmação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Deseja mesmo excluir este cadastro?<br>
+                Esta alteração irá apagar todas as viagens com este veículo.
+            </div>
+            <div class="modal-footer">
+                <form action="" method="POST" id="formExcluir">
+                    <input type="hidden" name="id" value="" id="idItem">
+
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!--Js do datatable com exportações-->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -91,8 +119,8 @@
                     className: "dt-right",
                 },*/
                 {
-                    targets: 4,
-                    className: "dt-center",
+                    //targets: 4,
+                    //className: "dt-center",
                 }
             ],
             order: [[0, 'desc']],
@@ -100,4 +128,10 @@
         });
         $('.dataTables_length').addClass('bs-select');
     });
+
+
+    function atualizarForm(id = "") {
+        document.getElementById("formExcluir").action = "/veiculo/remover"
+        document.getElementById("idItem").value = id
+    }
 </script>

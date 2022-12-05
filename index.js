@@ -125,6 +125,9 @@ aplicacao.use("/cliente", clienteRotas);
 const usuarioRotas = require("./routes/usuarioRotas.js");
 aplicacao.use("/usuario", usuarioRotas);
 
+const orcamentoRotas = require("./routes/orcamentoRotas");
+aplicacao.use("/orcamento", orcamentoRotas);
+
 
 // Inicia o servidor/aplicação somente depois de conectar ao BD
 conexaoBD

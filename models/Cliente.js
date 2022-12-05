@@ -25,8 +25,13 @@ const Cliente = bancoDeDados.define("Cliente", {
     },
     
     telefone:{
-        type: DataTypes.STRING(11), 
+        type: DataTypes.STRING(12), 
         allowNull: false
+    },
+    
+    email: {
+        type: DataTypes.STRING,
+        allowNull: true,
     },
 
     usuarioCriacao:{

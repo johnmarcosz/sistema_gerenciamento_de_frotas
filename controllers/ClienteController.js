@@ -22,11 +22,6 @@ module.exports = class ClienteController {
                 }
 
                 const resultado = data.map((result) => result.get({ plain: true }))
-                for (var index in resultado) {
-                    //   resultado[index].validadeCNH = resultado[index].validadeCNH.toLocaleDateString('pt-BR')
-                    //   resultado[index].numeroCNH = resultado[index].numeroCNH.toString()
-
-                }
 
                 res.render('cliente/listar', { resultado, qtd })
             })
@@ -46,6 +41,7 @@ module.exports = class ClienteController {
             nomeFantasia: req.body.nomeFantasia,
             cpfCnpj: req.body.cpfCnpj,
             telefone: req.body.telefone,
+            email: req.body.email,
             usuarioCriacao: "Douglas"
         }
         Cliente.create(cliente)
@@ -60,8 +56,6 @@ module.exports = class ClienteController {
         const id = req.params.id
         Cliente.findOne({ where: { id: id }, raw: true })
             .then((cliente) => {
-                cliente.validadeCNH = cliente.validadeCNH.toLocaleDateString('en-CA')
-
                 res.render('cliente/editar', { cliente })
             })
             .catch((err) => console.log(err))
@@ -76,6 +70,7 @@ module.exports = class ClienteController {
             nomeFantasia: req.body.nomeFantasia,
             cpfCnpj: req.body.cpfCnpj,
             telefone: req.body.telefone,
+            email: req.body.email,
             usuarioCriacao: "Douglas"
         }
         Cliente.update(cliente, { where: { id: id } })
