@@ -6,7 +6,7 @@ var Service = require('node-windows').Service;
 var svc = new Service({
     name: 'Sistema Gerenciador de Frotas',
     description: 'Node.js server',
-    script: 'C:\Users\vidal\Downloads\sistema_gerenciamento_de_frotas\index.js'
+    script: 'C:\\Program Files\\Sgf\\servico.js'
 });
 
 svc.on('install', function () {

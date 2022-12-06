@@ -1,13 +1,15 @@
 const express = require("express");
 const rota = express.Router();
 const VeiculoController = require("../controllers/VeiculoController");
+const verificaSessao = require("../models/sessao").verificaSessao;
 
-rota.get("/", VeiculoController.mostrarVeiculos);
-rota.get("/criar", VeiculoController.criarVeiculo);
-rota.post("/criarPost", VeiculoController.criarVeiculoPost);
-rota.get("/editar/:id", VeiculoController.editarVeiculo);
-rota.post("/editarPost", VeiculoController.editarVeiculoPost);
-rota.post("/remover", VeiculoController.removerVeiculo);
+
+rota.get("/",verificaSessao, VeiculoController.mostrarVeiculos);
+rota.get("/criar",verificaSessao, VeiculoController.criarVeiculo);
+rota.post("/criarPost",verificaSessao, VeiculoController.criarVeiculoPost);
+rota.get("/editar/:id",verificaSessao, VeiculoController.editarVeiculo);
+rota.post("/editarPost",verificaSessao, VeiculoController.editarVeiculoPost);
+rota.post("/remover",verificaSessao, VeiculoController.removerVeiculo);
 
 
 module.exports = rota;

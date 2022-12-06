@@ -80,35 +80,6 @@ aplicacao.get('/logout', function (req, res) {
   res.redirect('/login')
   })
 
-
-// ACESSE localhost:3000/usuarioTemp PARA CRIAR UM USUÁRIO PADRÃO TEMPORARIAMENTE
-aplicacao.get('/usuarioTemp', function(req, res){
-
-  const Usuario = require('./models/Usuario')
-  const bcrypt = require('bcryptjs')
-  const { Op } = require('sequelize')
-
-  const salt = bcrypt.genSaltSync(10)
-  const hashSenha = bcrypt.hashSync("admin", salt)
-
-  const usuario = {
-      //Cria o hash
-      username: 'admin',
-      senha: hashSenha, //Usa o hash para cadastrar no bd
-      nome: 'Admin temporário'
-  }
-
-  console.log(usuario)
-  Usuario.create(usuario)
-      .then(() => {
-          res.redirect('/')
-      })
-      .catch((err) => console.log(err))
-})
-
-
-
-
 //Rotas dos models
 const veiculoRotas = require("./routes/veiculoRotas");
 aplicacao.use("/veiculo", veiculoRotas);

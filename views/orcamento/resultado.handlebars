@@ -1,75 +1,86 @@
 <div class="container-x1 px-4 h-100">
-
+ 
     <form action="/orcamento/salvarPost" method="POST">
-
+ 
         <div class="col-mb-3">
             <h4>Resultado</h4>
         </div>
-
+ 
         <hr>
-
+ 
         <input type="hidden" name="distanciaKm" value={{orcamento.distanciaKm}}>
         <input type="hidden" name="consumo" value={{orcamento.consumo}}>
         <input type="hidden" name="precoCombustivel" value={{orcamento.precoCombustivel}}>
         <input type="hidden" name="decrementoVeiculo" value={{orcamento.decrementoVeiculo}}>
         <input type="hidden" name="lucroPercentual" value={{orcamento.lucroPercentual}}>
         <input type="hidden" name="custosExtras" value={{orcamento.custosExtras}}>
-
+ 
         <div class="form-row row">
-
+ 
             <div class="col">
                 <label for="valor" class="form-label">Valor final</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <div class="input-group-text">R$</div>
                     </div>
-                    <input type="number" step="0.01" class="form-control" name="valor" value={{orcamento.valor}} 
+                    <input type="number" step="0.01" class="form-control" id="valor" value={{orcamento.valor}}
                         readonly>
                 </div>
             </div>
-
+ 
             <div class="col">
                 <label for="valorKm" class="form-label">Valor Km rodado</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <div class="input-group-text">R$</div>
                     </div>
-                    <input type="number" step="0.01" class="form-control" name="valorKm" value={{orcamento.valorKm}}
+                    <input type="number" step="0.01" class="form-control" id="valorKm" value={{orcamento.valorKm}}
                         readonly>
                 </div>
             </div>
-
+ 
         </div>
-
+ 
         <div class="form-row row">
-
+ 
             <div class="col">
                 <label for="lucroValor" class="form-label">Valor lucro</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <div class="input-group-text">R$</div>
                     </div>
-                    <input type="number" step="0.01" class="form-control" name="lucroValor" value={{orcamento.lucroValor}}
+                    <input type="number" step="0.01" class="form-control" id="lucroValor" value={{orcamento.lucroValor}}
                         readonly>
                 </div>
             </div>
-
+ 
             <div class="col">
                 <label for="custoFinal" class="form-label">Valor Custos</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <div class="input-group-text">R$</div>
                     </div>
-                    <input type="number" step="0.01" class="form-control" name="custoFinal" value={{orcamento.custoFinal}}
+                    <input type="number" step="0.01" class="form-control" id="custoFinal" value={{orcamento.custoFinal}}
                          readonly>
                 </div>
             </div>
-
+ 
         </div>
-
+ 
         <center class="mt-3">
             <a href="/orcamento/criar" class="btn btn-primary"><i class="bi bi-arrow-return-left"> Calcular Novamente</i></a>
-            <button type="submit" class="btn btn-success"><i class="bi bi-bookmark"> Salvar</i></button> 
+            <button type="submit" class="btn btn-success"><i class="bi bi-bookmark"> Salvar</i></button>
         </center>
-
+ 
 </div>
+ 
+<script>
+ 
+document.getElementById("custoFinal").value = {{orcamento.custoFinal}}.toFixed(2)
+document.getElementById("lucroValor").value = {{orcamento.lucroValor}}.toFixed(2)
+document.getElementById("valorKm").value = {{orcamento.valorKm}}.toFixed(2)
+document.getElementById("valor").value = {{orcamento.valor}}.toFixed(2)
+ 
+ 
+</script>
+

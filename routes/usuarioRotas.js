@@ -13,13 +13,13 @@ rota.get("/editar/:id",verificaSessao, UsuarioController.editarUsuario);
 
 rota.post("/remover",verificaSessao, UsuarioController.removerUsuario);
 
-rota.get("/", UsuarioController.mostrarUsuarios);
-rota.get("/criar", UsuarioController.criarUsuario);
-rota.post("/criarPost", UsuarioController.criarUsuarioPost);
-rota.get("/editar/:id", UsuarioController.editarUsuario);
-rota.post("/editarPost", UsuarioController.editarUsuaroPost);
-rota.post("/remover", UsuarioController.removerUsuario);
-rota.post("/loginPost", UsuarioController.loginPost);
+rota.get("/",verificaSessao, UsuarioController.mostrarUsuarios);
+rota.get("/criar",verificaSessao, UsuarioController.criarUsuario);
+rota.post("/criarPost",verificaSessao, UsuarioController.criarUsuarioPost);
+rota.get("/editar/:id",verificaSessao, UsuarioController.editarUsuario);
+rota.post("/editarPost", verificaSessao, UsuarioController.editarUsuaroPost);
+rota.post("/remover", verificaSessao, UsuarioController.removerUsuario);
+rota.post("/loginPost",verificaSessao, UsuarioController.loginPost);
 
 
 
